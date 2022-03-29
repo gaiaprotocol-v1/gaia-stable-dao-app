@@ -1,0 +1,34 @@
+@import "base.less";
+@import "palette.less";
+
+@font-face {
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css");
+    @import url("https://p.typekit.net/p.css?s=1&k=zoc8uhz&ht=tk&f=15665.15666&a=43843172&app=typekit&e=css");
+}
+
+body {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background : black;
+    margin     : auto;
+    color      : white;
+}
+
+// components
+@import "component/shared/dialogue/alert.less";
+@import "component/shared/dialogue/confirm.less";
+@import "component/shared/dialogue/prompt.less";
+@import "component/shared/connectwalletpopup.less";
+@import "component/shared/klipqrpopup.less";
+@import "component/shared/popup.less";
+@import "component/shared/menu/user-menu.less";
+@import "component/shared/menu/pc-menu.less";
+@import "component/shared/menu/mobile-menu.less";
+@import "component/shared/user-info.less";
+@import "component/nft-item.less";
+@import "component/portfolio-item.less";
+
+
+// views
+@import "view/layout.less";
+@import "view/buy.less";
+@import "view/portfolio.less";

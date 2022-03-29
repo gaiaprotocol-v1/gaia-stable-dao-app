@@ -1,0 +1,38 @@
+key,ko,en
+TITLE,Gaia Stable DAO,Gaia Stable DAO
+BUY_MENU,HOME,HOME
+PORTFOLIO_MENU,PORTFOLIO,PORTFOLIO
+CONNECT_WALLET_BUTTON,지갑연결,Connect Wallet
+KLIP_POPUP_TITLE,QR 코드로 Klip 접속,Connect Klip via QR code
+KLIP_POPUP_DESC1,QR 코드 리더기 또는 카카오톡 앱을 통해 QR 코드를 스캔해주세요.,Please scan the QR code through a QR Code Reader or Kakao Talk Application
+KLIP_POPUP_DESC2,카카오톡 실행 ▶ 상단 검색창 클릭 ▶ 코드 스캔 후 로그인,Run Kakao Talk Application ▶ Click the search bar on the top ▶ Scan the code to log in
+KLIP_POPUP_DESC3,* Klip > 코드스캔 (사이드메뉴)에서도 스캔이 가능합니다.,"* You can also scan the at ""Code Scan"" from side menu of Klip"
+CONNECT_WALLET_TITLE,지갑 연결,Connect Wallet
+CONNECT_WALLET_DESC,가이아 프로토콜은 클레이튼 블록체인과의 연결이 필요합니다. 카이카스 혹은 카카오톡 클립에서 연결해주시기 바랍니다.,Gaia Protocol needs a connection with the Klayton blockchain. Please connect from Kaikas or Kakao Talk Klip.
+CONNECT_WALLET_BUTTON1,카이카스 연결,Connect Kaikas
+CONNECT_WALLET_BUTTON2,카카오톡 클립으로 연결,Connect with Kakao Talk Klip
+CONNECT_WALLET_BUTTON3,연결하지 않고 둘러보기,Explore without Wallet Connection
+ALERT_UNABLE_RECEIVE_TITLE,오류,Error
+ALERT_UNABLE_RECEIVE_DESC,아직 수령할 수 없습니다.,Can't receive it yet.
+SEND_PROMPT_TITLE,전송하기,Send
+SEND_PROMPT_DESC,"전송받을 지갑 주소를 입력해주시기 바랍니다. 전송이 완료되면 절대 되찾을 수 없으니, 지갑 주소를 여러번 확인하시기 바랍니다.","Please enter the wallet address to be sent. Once the transmission is completed, you can never get it back, so please check your wallet address several times."
+SEND_PROMPT_BUTTON,전송,Send
+BUY_TITLE,BUY & BUYBACK,BUY & BUYBACK
+BUYBACK_BUTTON,바이백,BUYBACK
+BUYBACK_CONFIRM_TITLE,바이백,BUYBACK
+BUYBACK_CONFIRM_DESC,"1,200USDT를 바이백합니다.",
+BUYBACK_CONFIRM_BUTTON,확인,
+BUY_INPUT,NFT 구매 수량 입력,
+BUY_NFT_BUTTON,NFT 구입,
+BUY_USDT_BUTTON,KUSDT 구매하기,
+MY_NFT_TITLE,내 NFT 목록,
+CONFIRM_BUTTON,확인,Confirm
+CANCEL_BUTTON,취소,Cancel
+PORTFOLIO_TITLE,PORTFOLIO,
+PORTFOLIO_ITEM_TITLE,{Sequence} 투자,{Sequence} Invest
+PORTFOLIO_ITEM_DESC1,투자처: ,
+PORTFOLIO_ITEM_DESC2,투자 자본: ,
+PORTFOLIO_ITEM_DESC3,투자 기간: ,
+PORTFOLIO_ITEM_DESC4,투자 결과: ,
+PORTFOLIO_ITEM_DESC5,클레임 가능 수량: ,
+PORTFOLIO_BUTTON,클레임,

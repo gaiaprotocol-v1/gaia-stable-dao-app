@@ -1,0 +1,12 @@
+{
+    "menu": [
+        {
+            "uri": "",
+            "key": "BUY_MENU"
+        },
+        {
+            "uri": "portfolio",
+            "key": "PORTFOLIO_MENU"
+        }
+    ]
+}

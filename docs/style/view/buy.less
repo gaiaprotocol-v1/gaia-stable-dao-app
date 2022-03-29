@@ -1,0 +1,115 @@
+.buy-view {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
+    align-items     : center;
+    margin-top      : 64px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius   : 1rem;
+    padding         : 32px;
+    max-width       : 768px;
+    margin          : auto;
+
+    >h1 {
+        font-family  : trajan-pro-3, serif;
+        font-weight  : 700;
+        font-size    : 32px;
+        margin-bottom: 64px;
+    }
+
+    >img {
+        width : 20%;
+        margin: 32px;
+
+        @media @phone {
+            width: 80%;
+        }
+    }
+
+    >.input-container {
+        display       : flex;
+        flex-direction: column;
+        margin-top    : 32px;
+        width         : 100%;
+
+        >input {
+            color           : white;
+            border          : 1px solid rgb(29, 29, 32);
+            border-radius   : 4px;
+            padding         : 12px;
+            background-color: rgba(16, 16, 16, 1);
+
+            &:hover {
+                border-color: rgba(0, 68, 90, 1)
+            }
+
+            &:focus {
+                border-color: rgba(0, 68, 90, 1)
+            }
+        }
+
+        >a {
+            display         : block;
+            color           : rgba(0, 68, 90, 1);
+            margin-top      : 16px;
+            padding         : 12px 24px;
+            font-size       : 14px;
+            text-decoration : none;
+            color           : white;
+            background-color: rgba(0, 68, 90, 0.8);
+            border-radius   : 4px;
+            font-family     : trajan-pro-3, serif;
+
+            &:hover {
+                background-color: rgba(0, 68, 90, 0.9);
+            }
+
+            &:active {
+                background-color: rgba(0, 68, 90, 1);
+            }
+        }
+
+        >.usdt {
+            display         : flex;
+            flex-direction  : column;
+            width           : 100%;
+            margin-top      : 16px;
+            padding         : 12px 24px;
+            font-size       : 14px;
+            text-decoration : none;
+            background-color: transparent;
+            border          : 1px solid rgba(224, 216, 200, 1);
+            color           : rgba(224, 216, 200, 1);
+            border-radius   : 4px;
+            justify-content : center;
+            align-items     : center;
+
+            &:hover {
+                background-color: rgba(224, 216, 200, 0.2);
+            }
+
+            &:active {
+                background-color: rgba(224, 216, 200, 0.5);
+            }
+        }
+    }
+
+    >.nft-container {
+        display       : flex;
+        flex-direction: column;
+        width         : 100%;
+        margin-top    : 64px;
+        align-items   : flex-start;
+
+        >h2 {
+            font-family: trajan-pro-3, serif;
+            font-weight: 700;
+            font-size  : 21px;
+        }
+
+        >section {
+            margin-top: 16px;
+        }
+    }
+}
