@@ -171,7 +171,7 @@ input {
 }
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  background: black;
+  background: no-repeat url("/images/shared/img/img-bg.png");
   margin: auto;
   color: white;
 }
@@ -699,7 +699,7 @@ body {
   align-items: flex-end;
 }
 .portfolio-item:hover {
-  background-color: rgba(0, 68, 90, 0.2);
+  background-color: rgba(16, 16, 16, 0.9);
 }
 .portfolio-item > .title > h2 {
   font-family: trajan-pro-3, serif;
@@ -918,7 +918,6 @@ body {
   text-align: center;
   align-items: center;
   margin-top: 64px;
-  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 32px;
   max-width: 768px;
@@ -1019,7 +1018,6 @@ body {
   text-align: center;
   align-items: center;
   margin-top: 64px;
-  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 32px;
   max-width: 768px;
