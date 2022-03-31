@@ -2,6 +2,10 @@
     "menu": [
         {
             "uri": "",
+            "key": "HOME_MENU"
+        },
+        {
+            "uri": "buy",
             "key": "BUY_MENU"
         },
         {

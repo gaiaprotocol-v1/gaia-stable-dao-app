@@ -617,6 +617,44 @@ body {
     background-color: transparent;
   }
 }
+.collapsible-item > section > .collapsible {
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  background: black;
+  padding: 26px 8px;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  line-height: 2rem;
+  border-top: 1px solid #2C2C2C;
+  border-bottom: 1px solid #2C2C2C;
+}
+@media only screen and (max-width: 719px) {
+  .collapsible-item > section > .collapsible {
+    font-size: 16px;
+  }
+}
+.collapsible-item > section > .active,
+.collapsible-item > section .collapsible:hover {
+  background-color: #00445a;
+}
+.collapsible-item > section > .content {
+  text-align: left;
+  padding: 26px 8px;
+  display: none;
+  overflow: hidden;
+  background-color: #00445a;
+  font-size: 16px;
+  line-height: 2rem;
+  border-bottom: 1px solid #2C2C2C;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 719px) {
+  .collapsible-item > section > .content {
+    font-size: 14px;
+  }
+}
 .nft-item {
   display: flex;
   position: relative;
@@ -742,14 +780,14 @@ body {
 }
 .layout {
   width: 100%;
+  background-color: black;
 }
 .layout > header {
   display: flex;
   position: fixed;
   justify-items: center;
-  width: 100%;
   background-color: black;
-  max-height: 52px;
+  width: 100%;
   left: 0;
   top: 0;
   z-index: 999;
@@ -910,6 +948,228 @@ body {
 .layout > footer .footer-container > .copyright {
   font-size: 0.75rem;
   margin-bottom: 32px;
+}
+.landing-view {
+  background: black;
+}
+.landing-view > main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1240px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main {
+    padding: 20px;
+  }
+}
+.landing-view > main > .init-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+}
+.landing-view > main > .init-container > img {
+  width: 35%;
+  margin: 32px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .init-container > img {
+    width: 80%;
+  }
+}
+.landing-view > main > .init-container > .flow-map {
+  width: 50%;
+  margin: 72px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .init-container > .flow-map {
+    width: 100%;
+    margin: 0px;
+  }
+}
+.landing-view > main > .init-container > p {
+  margin-top: 32px;
+  line-height: 2rem;
+}
+.landing-view > main > .project-container > h2,
+.landing-view > main .buy-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #00445a;
+  margin-top: 12rem;
+}
+.landing-view > main > .project-container > img,
+.landing-view > main .buy-container > img {
+  margin-top: 4rem;
+  width: 512px;
+}
+.landing-view > main > .project-container > h3,
+.landing-view > main .buy-container > h3 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 500;
+  font-size: 21px;
+  margin-top: 4rem;
+  color: #e0d8c8;
+}
+.landing-view > main > .project-container > p,
+.landing-view > main .buy-container > p {
+  margin-top: 16px;
+  line-height: 32px;
+}
+.landing-view > main > .video-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #00445a;
+}
+.landing-view > main > .video-container > .video {
+  margin-top: 1rem;
+}
+.landing-view > main > .fundflow {
+  margin-top: 12rem;
+  width: 50%;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .fundflow {
+    width: 100%;
+  }
+}
+.landing-view > main > .nft-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-view > main > .nft-container > p {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+.landing-view > main > .nft-container > section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2rem;
+}
+.landing-view > main > .nft-container > section > img {
+  width: 300px;
+  margin: 8px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .nft-container > section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.landing-view > main > .mint-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-view > main > .mint-container > h3 {
+  margin-top: 4rem;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.landing-view > main > .mint-container > h4 {
+  margin-top: 2rem;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.landing-view > main > .mint-container > .caption {
+  margin-top: 0.5rem;
+}
+.landing-view > main > .mint-container > p {
+  margin-top: 1rem;
+}
+.landing-view > main > .mint-container > a {
+  display: block;
+  font-family: copperplate, serif;
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 16px;
+  text-decoration: none;
+  background-color: #00445a;
+  border-radius: 4px;
+  color: white;
+}
+.landing-view > main > .mint-container > a:hover {
+  background-color: rgba(0, 68, 90, 0.9);
+}
+.landing-view > main > .mint-container > a:active {
+  background-color: rgba(0, 68, 90, 0.8);
+}
+.landing-view > main > .team-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-view > main > .team-container > section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .team-container > section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.landing-view > main > .team-container > section > .team > h3 {
+  margin-top: 4rem;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.landing-view > main > .team-container > section > .team > p {
+  margin-top: 1rem;
+  color: rgba(0, 68, 90, 0.8);
+}
+.landing-view > main > .faq-container,
+.landing-view > main .partnership-container {
+  width: 100%;
+}
+.landing-view > main > .faq-container > h2,
+.landing-view > main .partnership-container > h2 {
+  font-family: trajan-pro-3, serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 12rem;
+  color: #00445a;
+}
+.landing-view > main > .faq-container > section,
+.landing-view > main .partnership-container > section {
+  margin-top: 4rem;
+}
+.landing-view > main > .faq-container > section > a > img,
+.landing-view > main .partnership-container > section > a > img {
+  width: 100%;
+  height: 96px;
+  padding: 16px;
+}
+@media only screen and (max-width: 719px) {
+  .landing-view > main > .faq-container > section > a > img,
+  .landing-view > main .partnership-container > section > a > img {
+    margin-top: 2rem;
+  }
+}
+.landing-view > main > .faq-container > section > a > .electrikFinance,
+.landing-view > main .partnership-container > section > a > .electrikFinance {
+  width: 107px;
+  height: 129px;
+  padding: 16px;
 }
 .buy-view {
   display: flex;
