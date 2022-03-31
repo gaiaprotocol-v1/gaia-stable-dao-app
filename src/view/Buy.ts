@@ -8,8 +8,8 @@ export default class Buy implements View {
 
     private container: DomNode;
 
-    private klayDisplay: DomNode;
-    private amountDisplay: DomNode;
+    private totalDisplay: DomNode;
+    private priceDisplay: DomNode;
 
     constructor() {
         Layout.current.title = msg("BUY_TITLE");
@@ -17,8 +17,8 @@ export default class Buy implements View {
             el("h1", "Buy / Buyback"),
             el("img", { src: "/images/shared/img/img-logo.png", alt: "logo" }),
             el(".selector-container",
-                this.klayDisplay = el("p", "... KLAY"),
-                this.amountDisplay = el("p", "... EA"),
+                this.totalDisplay = el("p", "TOTAL: ... KUSDT"),
+                this.priceDisplay = el("p", "PRICE: ... KUSDT"),
                 el(".select",
                     el("a.disable", "Kronos"),
                     el("hr"),
