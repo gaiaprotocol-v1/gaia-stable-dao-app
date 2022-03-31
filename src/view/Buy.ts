@@ -8,11 +8,25 @@ export default class Buy implements View {
 
     private container: DomNode;
 
+    private klayDisplay: DomNode;
+    private amountDisplay: DomNode;
+
     constructor() {
         Layout.current.title = msg("BUY_TITLE");
         Layout.current.content.append(this.container = el(".buy-view",
             el("h1", "Buy / Buyback"),
             el("img", { src: "/images/shared/img/img-logo.png", alt: "logo" }),
+            el(".selector-container",
+                this.klayDisplay = el("p", "... KLAY"),
+                this.amountDisplay = el("p", "... EA"),
+                el(".select",
+                    el("a.disable", "Kronos"),
+                    el("hr"),
+                    el("a.disable", "Supernova"),
+                    el("hr"),
+                    el("a", "Public"),
+                ),
+            ),
             el(".input-container",
                 el("input", { placeholder: msg("BUY_INPUT") }),
                 el("a", msg("BUY_NFT_BUTTON")),
