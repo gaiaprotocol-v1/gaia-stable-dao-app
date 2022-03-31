@@ -26,7 +26,7 @@ export default class Landing implements View {
                 ),
                 el(".project-container", { id: "project" },
                     el("h2", { "data-aos": "fade-up" }, msg("PROJECT_TITLE")),
-                    el("img", { src: "/images/view/landing/ama.png", alt: "ama" }),
+                    el("a", { href: "https://drive.google.com/file/d/13Ses5hgva3kGiNRGkKss58qjo4WPNfLY/view?usp=sharing", target: "_blank" }, el("img", { src: "/images/view/landing/ama.png", alt: "ama" })),
                     el("h3", { "data-aos": "fade-up" }, msg("PROJECT_TITLE1")),
                     el("p", { "data-aos": "fade-up" }, msg("PROJECT_DESC1")),
                     el("h3", { "data-aos": "fade-up" }, msg("PROJECT_TITLE2")),

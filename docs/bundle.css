@@ -1007,14 +1007,14 @@ body {
   color: #00445a;
   margin-top: 12rem;
 }
-.landing-view > main > .project-container > img,
-.landing-view > main .buy-container > img {
+.landing-view > main > .project-container > a > img,
+.landing-view > main .buy-container > a > img {
   margin-top: 4rem;
   width: 50%;
 }
 @media only screen and (max-width: 719px) {
-  .landing-view > main > .project-container > img,
-  .landing-view > main .buy-container > img {
+  .landing-view > main > .project-container > a > img,
+  .landing-view > main .buy-container > a > img {
     width: 100%;
   }
 }
@@ -1173,7 +1173,7 @@ body {
 }
 .landing-view > main > .faq-container > section > a > .electrikFinance,
 .landing-view > main .partnership-container > section > a > .electrikFinance {
-  width: 107px;
+  max-width: 351px;
   height: 129px;
   padding: 16px;
 }
