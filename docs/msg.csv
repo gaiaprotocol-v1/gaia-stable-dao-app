@@ -45,7 +45,8 @@ TEAM_MENU,TEAM,TEAM
 FAQ_MENU,FAQ,FAQ
 PARTNERSHIP_MENU,PARTNERSHIP,PARTNERSHIP
 INIT_DESC,Gaia Protocol의 3nd NFT 프로젝트\n1. 세계 최초 NFT 기반 투자 그룹 형성 \n2. 국내 최초 스테이블(KUSDT)를 통한 NFT 발행 \n 3. 발행 금액의 90% 이상을 Stable Pool 에 예치 \n4. Pool에서 발생한 이자만으로 공격적인 투자 진행 \n 5. Stable DAO NFT 홀더들의 거버넌스(투표)를 통하여 투자처 및 투자 기간 선정 \n 6. 투자를 통해 발생한 이윤 90%를 각 NFT에 균등 분배 \n7. 투자처와 방식에 있어 NFT 홀더들의 DAO를 통해 홀더들의 적극적인 안건 제안과 투표 진행 \n8.예치금의 손실 없이 이자만을 사용한 공격적인 투자 진행으로 위험 부담 감소,
-PROJECT_TITLE,Project Detail,Project Detail
+PROJECT_TITLE,Project Detail,Project Detail,
+PROJECT_DOC_LINK,문서 확인
 PROJECT_TITLE1,1. 프로젝트 런칭,
 PROJECT_DESC1,NFT 판매 시작\n스테이블 다오 초기 홀더들이 구매 진행\n오픈된 거버넌스 채널에서 약 1개월 간 첫 투자처 선정에 대한 투표 진행,
 PROJECT_TITLE2,2. DAO 초기 구축,
@@ -57,6 +58,7 @@ PROJECT_DESC4,"위의 과정을 수행하고 프로젝트가 정착되어, 스�
 SNEAKPEEK_TITLE,SNEAK PEEK,SNEAK PEEK
 MINT_BUY_TITLE1,Buy,Buy
 MINT_BUY_TITLE,Buy & Buyback ,Buy & Buyback
+MINT_BUY_BUTTON,Buy
 MINT_BUY_DESC1,4월 8일 밤 22시 00분 ~ 6월 30일 밤 22시 00분,
 MINT_BUY_DESC2,"Gaia Kronos: 1,200KUSDT \n Gaia Supernova: 1,250KUSDT \n Public Sale: 1,300 KUSDT","Gaia Kronos: 1,200KUSDT \n Gaia Supernova: 1,250KUSDT \n Public Sale: 1,300 KUSDT"
 MINT_BUYBACK_TITLE,Buyback,Buyback
@@ -88,7 +90,7 @@ FAQ_TITLE2,"Q2. 스테이블 다오 보유 시, 가이아 슈퍼 이벤트에서
 FAQ_DESC2,"슈퍼 이벤트에서 가이아 크로노스와 동일한 가산점을 부여받습니다. (슈퍼노바 : 10점 / 크로노스, 스테이블 다오 : 1점) \n단, 슈퍼 이벤트의 추첨 대상자가 되려면 슈퍼노바를 최소 1장 보유해야합니다.",
 FAQ_TITLE3,Q3. 팀에서도 거버넌스에 참여 하나요?,
 FAQ_DESC3,"팀에서는 시스템적인 문제 해결 이외에 별도 투자 관련 제안, 투표 등에는 참여하지 않습니다.\n 다만, 프로젝트의 근본을 파괴하려는 시도, 과도한 커뮤니티 내의 분쟁 등은 팀에서 지속적으로 관리가 진행됩니다.",
-FAQ_TITLE4,Q4. DAO를 통해 선정된 프로젝트에 대한 악용 살를 막을 방법이 있나요?,
+FAQ_TITLE4,Q4. DAO를 통해 선정된 프로젝트에 대한 악용을 막을 방법이 있나요?,
 FAQ_DESC4,"현재 팀에서는 해당 부분에 대하여 큰 우려를 하지 않고 있습니다. \n개인이 움직이는 자금이 선정된 프로젝트의 근간을 흔들 수 있을 것이라고 보지 않습니다. \n더불어, 선매수 단타물량을 방지하기 위해 정확한 자금 투입시간을 공지하지 않고 진행합니다. \n 프로젝트 선정 후 단타로 유의미한 수익이 발생한다해도, 해당 정보를 가장 먼저 접하는 것은 스테이블 다오 홀더들입니다. \n 팀은 지속적으로 어느정도의 보완책을 마련할 것입니다.",
 FAQ_TITLE5,Q5. 투자처의 제한이 있나요?,
 FAQ_DESC5,"투자처는 온체인 상에 있는 투자대상만 투자가 가능합니다. (실물 자산 및 주식시장은 투자 불가, 코인 선물거래등은 가능)",

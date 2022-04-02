@@ -6,6 +6,7 @@
     "dependencies": {
         "@hanul/skynode": "^0.0.17",
         "@hanul/waiter": "^0.0.1",
+        "@splidejs/splide": "^3.6.12",
         "@types/superagent": "^4.1.12",
         "@walletconnect/web3-provider": "^1.4.1",
         "aos": "^2.3.4",
@@ -14,6 +15,7 @@
         "klip-sdk": "^2.0.1",
         "less": "^4.1.1",
         "msg.js": "^0.0.2",
+        "pdfobject": "^2.2.7",
         "skyrouter": "^0.0.8",
         "skyutil": "^0.0.12",
         "superagent": "^6.1.0",
@@ -21,6 +23,7 @@
     },
     "devDependencies": {
         "@types/aos": "^3.0.4",
+        "@types/pdfobject": "^2.2.3",
         "assert": "^2.0.0",
         "crypto-browserify": "^3.12.0",
         "css-loader": "^5.2.1",

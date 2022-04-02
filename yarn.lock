@@ -577,6 +577,11 @@
   "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz"
   "version" "0.14.0"
 
+"@splidejs/splide@^3.6.12":
+  "integrity" "sha512-ggOUAuSxjWuxxL0IQEZcux26KByfKWfYM2HYmvDBdxkXc5evVW+xuECO+3iuciyrJpgcbYTr4hn0cHfbNlYIeA=="
+  "resolved" "https://registry.npmjs.org/@splidejs/splide/-/splide-3.6.12.tgz"
+  "version" "3.6.12"
+
 "@szmarczak/http-timer@^1.1.2":
   "integrity" "sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA=="
   "resolved" "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-1.1.2.tgz"
@@ -657,6 +662,11 @@
   "version" "3.1.0"
   dependencies:
     "@types/node" "*"
+
+"@types/pdfobject@^2.2.3":
+  "integrity" "sha512-MD9wkJikZX9GwEbYwMsJWDChNpATrf2ULVQ5oEfZue/SwA5l77Sm8KWWoM4NYS/RFy+/r0oDm4Z3EBbr7In08g=="
+  "resolved" "https://registry.npmjs.org/@types/pdfobject/-/pdfobject-2.2.3.tgz"
+  "version" "2.2.3"
 
 "@types/secp256k1@^4.0.1":
   "integrity" "sha512-Da66lEIFeIz9ltsdMZcpQvmrmmoqrfju8pm1BH8WbYjZSwUgCwXLb9C+9XYogwBITnbsSaMdVPb2ekf7TV+03w=="
@@ -4107,6 +4117,11 @@
     "ripemd160" "^2.0.1"
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
+
+"pdfobject@^2.2.7":
+  "integrity" "sha512-9ptX0XNCtpYz0hNWz6j/1O4rvJkcPR2rct3UDBhs8ZEosOO67dCEAu4VpBvVJ64SMh8Mrn9pWWODnyLjgFQYgg=="
+  "resolved" "https://registry.npmjs.org/pdfobject/-/pdfobject-2.2.7.tgz"
+  "version" "2.2.7"
 
 "performance-now@^2.1.0":
   "integrity" "sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns="
