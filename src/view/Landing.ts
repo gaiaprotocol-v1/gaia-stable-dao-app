@@ -28,8 +28,8 @@ export default class Landing implements View {
                     el("h2", { "data-aos": "fade-up" }, msg("PROJECT_TITLE")),
                     el("img", { src: "/images/view/landing/ama.png", alt: "ama" }),
                     el("a", {
-                        href: "https://drive.google.com/file/d/13Ses5hgva3kGiNRGkKss58qjo4WPNfLY/view?usp=sharing",
-                        target: "_blank",
+                        href: "/Gaia_Protocol_4th_AMA_Final.pdf",
+                        download: ""
                     }, msg("PROJECT_DOC_LINK")),
                     // el("#ama", { height: "100vh" }),
                     el("h3", { "data-aos": "fade-up" }, msg("PROJECT_TITLE1")),

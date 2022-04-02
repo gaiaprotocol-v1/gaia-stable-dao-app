@@ -617,6 +617,9 @@ body {
     background-color: transparent;
   }
 }
+.collapsible-item {
+  padding: 0px 20px;
+}
 .collapsible-item > section > .collapsible {
   font-size: 2.5rem;
   color: white;
@@ -785,7 +788,7 @@ body {
 }
 .layout > header {
   display: flex;
-  position: fixed;
+  position: sticky;
   justify-items: center;
   background-color: black;
   width: 100%;
@@ -893,6 +896,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  padding: 32px 0px;
 }
 .layout > footer {
   color: white;
@@ -949,7 +953,8 @@ body {
   margin-bottom: 32px;
 }
 .landing-view {
-  background: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
 }
 .landing-view > main {
   display: flex;
