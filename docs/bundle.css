@@ -988,6 +988,21 @@ body {
     width: 80%;
   }
 }
+.landing-view > main > .init-container > a {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  padding: 12px;
+  background-color: #00445a;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  font-family: trajan-pro-3, serif;
+}
+.landing-view > main > .init-container > a:hover {
+  background-color: rgba(0, 68, 90, 0.8);
+}
 .landing-view > main > .init-container > .flow-map {
   width: 50%;
   margin: 72px;
@@ -1054,6 +1069,7 @@ body {
 }
 .landing-view > main > .buy-container > a {
   display: block;
+  max-width: 320px;
   width: 100%;
   padding: 12px;
   background-color: #00445a;

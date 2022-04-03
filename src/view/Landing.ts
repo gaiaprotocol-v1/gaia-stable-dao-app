@@ -15,6 +15,7 @@ export default class Landing implements View {
             el("main",
                 el(".init-container", { id: "init" },
                     el("img", { "data-aos": "fade-up" }, { src: "/images/logo/logo.png", alt: "gaia stable dao logo" }),
+                    el("a", { href: "/buy", "data-aos": "fade-up" }, msg("MINT_BUY_BUTTON")),
                     el("p", { "data-aos": "fade-up" }, msg("INIT_DESC")),
                     el("img.flow-map", { src: "/images/view/landing/flow-map.png", alt: "flow map", "data-aos": "fade-up" }),
                 ),
