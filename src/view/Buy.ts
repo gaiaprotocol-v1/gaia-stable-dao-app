@@ -64,10 +64,13 @@ export default class Buy implements View {
                 }),
                 el(".button-container",
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
-                        click: () => KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256),
+                        //click: () => KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256),
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
+                            alert("아직 구매할 수 없습니다.");
+                            return;
+
                             let nft = constants.AddressZero;
                             if (this.tabType === "kronos") {
                                 nft = GaiaKronosContract.address;
