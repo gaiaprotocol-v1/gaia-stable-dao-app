@@ -1,5 +1,4 @@
-import { DomNode, el } from "@hanul/skynode";
-import msg from "msg.js";
+import { DomNode, el, msg } from "skydapp-browser";
 import ViewUtil from "../view/ViewUtil";
 import Confirm from "./shared/dialogue/Confirm";
 import Prompt from "./shared/dialogue/Prompt";

@@ -1,8 +1,8 @@
 import { BigNumber, BigNumberish } from "@ethersproject/bignumber";
-import EventContainer from "eventcontainer";
 import QRCode from "qrcode";
+import { Store } from "skydapp-browser";
+import { EventContainer } from "skydapp-common";
 import KlipQRPopup from "../component/shared/KlipQRPopup";
-import Store from "../Store";
 
 const klipSDK = require("klip-sdk");
 

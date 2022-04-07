@@ -1,5 +1,4 @@
-import { DomNode, el } from "@hanul/skynode";
-import msg from "msg.js";
+import { DomNode, el, msg } from "skydapp-browser";
 
 export default class PortfolioItem extends DomNode {
 

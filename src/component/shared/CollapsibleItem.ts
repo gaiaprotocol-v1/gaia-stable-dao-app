@@ -1,4 +1,4 @@
-import { DomNode, el } from "@hanul/skynode";
+import { DomNode, el } from "skydapp-browser";
 
 export default class CollapsibleItem extends DomNode {
     private title: DomNode;

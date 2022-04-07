@@ -1,6 +1,5 @@
-import { BodyNode, DomNode, el } from "@hanul/skynode";
-import { View, ViewParams } from "skyrouter";
-import BrowserInfo from "../BrowserInfo";
+import { BodyNode, BrowserInfo, DomNode, el } from "skydapp-browser";
+import { View, ViewParams } from "skydapp-common";
 import MobileMenu from "../component/shared/menu/MobileMenu";
 import PCMenu from "../component/shared/menu/PCMenu";
 import UserInfo from "../component/shared/menu/UserInfo";

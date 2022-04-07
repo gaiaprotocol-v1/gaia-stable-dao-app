@@ -1,8 +1,8 @@
-import { DomNode, el } from "@hanul/skynode";
-import { View, ViewParams } from "skyrouter";
-import msg from "msg.js";
-import Layout from "./Layout";
+import { DomNode, el, msg } from "skydapp-browser";
+import { View, ViewParams } from "skydapp-common";
 import PortfolioItem from "../component/PortfolioItem";
+import Layout from "./Layout";
+
 
 export default class Portfolio implements View {
 

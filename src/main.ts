@@ -1,10 +1,9 @@
-import { SkyRouter } from "skyrouter";
-import msg from "msg.js";
+import { BrowserInfo, msg } from "skydapp-browser";
+import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
-import BrowserInfo from "./BrowserInfo";
-import Layout from "./view/Layout";
-import Landing from "./view/Landing";
 import Buy from "./view/Buy";
+import Landing from "./view/Landing";
+import Layout from "./view/Layout";
 import Portfolio from "./view/Portfolio";
 
 (async () => {

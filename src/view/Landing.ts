@@ -1,7 +1,6 @@
-import { DomNode, el } from "@hanul/skynode";
-import { View, ViewParams } from "skyrouter";
 import AOS from "aos";
-import msg from "msg.js";
+import { DomNode, el, msg } from "skydapp-browser";
+import { View, ViewParams } from "skydapp-common";
 import CollapsibleItem from "../component/shared/CollapsibleItem";
 import Layout from "./Layout";
 

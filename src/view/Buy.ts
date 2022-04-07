@@ -1,8 +1,6 @@
-import { DomNode, el } from "@hanul/skynode";
-import { View, ViewParams } from "skyrouter";
-import msg from "msg.js";
+import { DomNode, el, msg } from "skydapp-browser";
+import { View, ViewParams } from "skydapp-common";
 import Layout from "./Layout";
-import NftItem from "../component/NftItem";
 
 export default class Buy implements View {
 
