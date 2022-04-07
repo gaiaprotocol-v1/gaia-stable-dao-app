@@ -1327,6 +1327,10 @@ body {
   margin-top: 32px;
   width: 100%;
 }
+.buy-view > .input-container > p {
+  text-align: left;
+  margin-bottom: 10px;
+}
 .buy-view > .input-container > input {
   color: white;
   border: 1px solid #1d1d20;

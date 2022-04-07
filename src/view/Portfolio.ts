@@ -13,7 +13,8 @@ export default class Portfolio implements View {
         Layout.current.content.append(this.container = el(".portfolio-view",
             el("h1", "Portfolio"),
             el("section",
-                new PortfolioItem()
+                "아직 이자를 통한 투자가 이루어지지 않았습니다.",
+                //new PortfolioItem()
             ),
         ));
     }
