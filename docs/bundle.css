@@ -738,6 +738,11 @@ body {
   border-radius: 4px;
   align-items: flex-end;
 }
+@media only screen and (max-width: 719px) {
+  .portfolio-item {
+    flex-direction: column;
+  }
+}
 .portfolio-item:hover {
   background-color: rgba(16, 16, 16, 0.9);
 }
@@ -773,6 +778,11 @@ body {
   background-color: rgba(0, 68, 90, 0.8);
   border-radius: 4px;
   font-family: trajan-pro-3, serif;
+}
+@media only screen and (max-width: 719px) {
+  .portfolio-item > button {
+    width: 100%;
+  }
 }
 .portfolio-item > button:hover {
   background-color: rgba(0, 68, 90, 0.9);
@@ -822,6 +832,7 @@ body {
 }
 .layout > header > .nav > .right {
   display: flex;
+  align-items: center;
 }
 .layout > header > .nav > .right:after {
   content: " ";
@@ -1276,6 +1287,11 @@ body {
   margin-top: 16px;
   display: flex;
 }
+@media only screen and (max-width: 719px) {
+  .buy-view > .selector-container > .select {
+    flex-direction: column;
+  }
+}
 .buy-view > .selector-container > .select > a.disable {
   padding: 12px;
   color: #676767;
@@ -1298,6 +1314,13 @@ body {
   border: none;
   margin: 8px 50px;
 }
+@media only screen and (max-width: 719px) {
+  .buy-view > .selector-container > .select > hr {
+    width: 100%;
+    height: 1px;
+    margin: 0px;
+  }
+}
 .buy-view > .input-container {
   display: flex;
   flex-direction: column;
@@ -1317,7 +1340,13 @@ body {
 .buy-view > .input-container > input:focus {
   border-color: #00445a;
 }
-.buy-view > .input-container > a {
+.buy-view > .input-container > .button-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.buy-view > .input-container > .button-container > a {
+  width: 50%;
   display: block;
   color: #00445a;
   margin-top: 16px;
@@ -1328,11 +1357,21 @@ body {
   background-color: rgba(0, 68, 90, 0.8);
   border-radius: 4px;
 }
-.buy-view > .input-container > a:hover {
+.buy-view > .input-container > .button-container > a:hover {
   background-color: rgba(0, 68, 90, 0.9);
 }
-.buy-view > .input-container > a:active {
+.buy-view > .input-container > .button-container > a:active {
   background-color: #00445a;
+}
+.buy-view > .input-container > .button-container > .disabled {
+  background: #C8C8C8;
+  color: #E0E0E0;
+}
+.buy-view > .input-container > .button-container > .disabled:hover {
+  background: #C8C8C8;
+}
+.buy-view > .input-container > .button-container > .disabled:active {
+  background: #C8C8C8;
 }
 .buy-view > .input-container > .usdt {
   display: flex;
