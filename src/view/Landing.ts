@@ -40,6 +40,7 @@ export default class Landing implements View {
                     el("h3", { "data-aos": "fade-up" }, msg("PROJECT_TITLE3")),
                     el("p", { "data-aos": "fade-up" }, msg("PROJECT_DESC3")),
                     el("h3", { "data-aos": "fade-up" }, msg("PROJECT_TITLE4")),
+                    el("img", { src: "/images/view/landing/profit-structure.png", alt: "profit-structure.png", "data-aos": "fade-up" }),
                     el("p", { "data-aos": "fade-up" }, msg("PROJECT_DESC4")),
                 ),
                 el(".buy-container", { id: "buy" },
