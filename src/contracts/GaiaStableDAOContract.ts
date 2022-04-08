@@ -12,6 +12,10 @@ class GaiaStableDAOContract extends KIP17Contract {
     public async totalSupply(): Promise<BigNumber> {
         return BigNumber.from(await this.runMethod("totalSupply"));
     }
+
+    public async isMinter(addr: string): Promise<boolean> {
+        return await this.runMethod("isMinter", addr);
+    }
 }
 
 export default new GaiaStableDAOContract();

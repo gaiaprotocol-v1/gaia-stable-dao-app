@@ -16,6 +16,8 @@ import ViewUtil from "./ViewUtil";
 export default class Buy implements View {
 
     private container: DomNode;
+    private notice: DomNode;
+
     private tabType = "public";
 
     private ticket = 0;
@@ -61,7 +63,7 @@ export default class Buy implements View {
                 ),
             ),
             el(".input-container",
-                el("p", "아직 판매중이 아닙니다."),
+                this.notice = el("p"),
                 el("input", {
                     placeholder: msg("BUY_INPUT"),
                     change: (event, input) => {
@@ -75,23 +77,25 @@ export default class Buy implements View {
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
-                            alert("아직 구매가 불가능합니다.");
-                            return;
-                            let nft = constants.AddressZero;
-                            if (this.tabType === "kronos") {
-                                nft = GaiaKronosContract.address;
-                            }
-                            if (this.tabType === "supernova") {
-                                nft = GaiaSupernovaContract.address;
-                            }
-                            if (this.count.toNumber() > 10) {
-                                new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
-                            } else if (this.count.toNumber() > this.ticket) {
-                                new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
+                            if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+                                new Alert("오류", "아직 판매중이 아닙니다.");
                             } else {
-                                await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
-                                new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
-                                ViewUtil.waitTransactionAndRefresh();
+                                let nft = constants.AddressZero;
+                                if (this.tabType === "kronos") {
+                                    nft = GaiaKronosContract.address;
+                                }
+                                if (this.tabType === "supernova") {
+                                    nft = GaiaSupernovaContract.address;
+                                }
+                                if (this.count.toNumber() > 10) {
+                                    new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
+                                } else if (this.count.toNumber() > this.ticket) {
+                                    new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
+                                } else {
+                                    await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
+                                    new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
+                                    ViewUtil.waitTransactionAndRefresh();
+                                }
                             }
                         },
                     }),
@@ -119,6 +123,13 @@ export default class Buy implements View {
     private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
 
     private async loadSales() {
+
+        if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+            this.notice.empty().appendText("아직 판매중이 아닙니다.");
+        } else {
+            this.notice.empty().appendText("현재 판매중입니다.");
+        }
+
         const sales = await GaiaStableDAOContract.totalSupply();
         this.salesDisplay.empty().appendText(`SALES: ${sales} EA`);
 

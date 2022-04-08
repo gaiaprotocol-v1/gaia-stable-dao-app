@@ -1,6 +1,7 @@
 import { View, ViewParams } from "skydapp-common";
 export default class Buy implements View {
     private container;
+    private notice;
     private tabType;
     private ticket;
     private price;

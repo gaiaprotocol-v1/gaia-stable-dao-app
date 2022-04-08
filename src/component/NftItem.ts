@@ -36,8 +36,8 @@ export default class NftItem extends DomNode {
 
     public init(id: number) {
         this.id = id;
-        this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/supernova/png/${id}.png`;
-        this.imageDisplay.domElement.alt = `supernova ${id}`;
+        this.imageDisplay.domElement.src = `https://storage.googleapis.com/gaia-protocol/stabledao/${id}.png`;
+        this.imageDisplay.domElement.alt = `SDAO ${id}`;
         this.nameDisplay.appendText(`#${this.id}`);
     }
 
