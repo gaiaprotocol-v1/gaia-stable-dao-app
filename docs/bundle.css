@@ -1428,6 +1428,14 @@ body {
   font-family: trajan-pro-3, serif;
   font-weight: 700;
   font-size: 32px;
+  margin-bottom: 8px;
+}
+.portfolio-view > h2 {
+  font-size: 14px;
   margin-bottom: 64px;
+}
+.portfolio-view > section > p {
+  font-size: 21px;
+  margin-bottom: 32px;
 }
 
