@@ -145,6 +145,10 @@ export default class Buy implements View {
         const address = await Wallet.loadAddress();
         if (address !== undefined) {
             const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();
+            if (balance === 0) {
+                this.nftList.append(el("p.empty", "아직 구매하신 Stable DAO가 없습니다."));
+            }
+
             const promises: Promise<void>[] = [];
 
             this.tokenIds = [];
