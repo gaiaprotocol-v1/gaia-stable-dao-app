@@ -86,8 +86,8 @@
         width         : 100%;
 
         >p {
-            text-align   : left;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size    : 14px;
         }
 
         >input {
@@ -172,11 +172,15 @@
     }
 
     >.nft-container {
-        display       : flex;
-        flex-direction: column;
-        width         : 100%;
-        margin-top    : 64px;
-        align-items   : flex-start;
+        display              : grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap             : 20px;
+        width                : 100%;
+        margin-top           : 64px;
+
+        @media @phone {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
         >h2 {
             font-weight: 700;

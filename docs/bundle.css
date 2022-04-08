@@ -269,14 +269,6 @@ body {
   font-size: 0.875rem;
   line-height: 1.2em;
 }
-.dialogue.prompt > .warning {
-  margin-top: 8px;
-  padding: 16px;
-  font-size: 0.875rem;
-  line-height: 1.2em;
-  background-color: #00445a;
-  border-radius: 4px;
-}
 .dialogue.prompt > .input-container {
   margin-top: 8px;
   padding: 16px 0px;
@@ -1328,8 +1320,8 @@ body {
   width: 100%;
 }
 .buy-view > .input-container > p {
-  text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 .buy-view > .input-container > input {
   color: white;
@@ -1399,11 +1391,16 @@ body {
   background-color: rgba(224, 216, 200, 0.5);
 }
 .buy-view > .nft-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
   width: 100%;
   margin-top: 64px;
-  align-items: flex-start;
+}
+@media only screen and (max-width: 719px) {
+  .buy-view > .nft-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .buy-view > .nft-container > h2 {
   font-weight: 700;
