@@ -172,11 +172,11 @@
     }
 
     >.nft-container {
-        display              : grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap             : 20px;
-        width                : 100%;
-        margin-top           : 64px;
+        display       : flex;
+        flex-direction: column;
+        text-align    : left;
+        width         : 100%;
+        margin-top    : 64px;
 
         @media @phone {
             grid-template-columns: repeat(1, 1fr);
@@ -188,7 +188,10 @@
         }
 
         >section {
-            margin-top: 16px;
+            margin-top           : 16px;
+            display              : grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap             : 20px;
         }
     }
 }

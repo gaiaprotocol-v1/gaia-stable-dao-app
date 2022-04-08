@@ -1391,9 +1391,9 @@ body {
   background-color: rgba(224, 216, 200, 0.5);
 }
 .buy-view > .nft-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   width: 100%;
   margin-top: 64px;
 }
@@ -1408,6 +1408,9 @@ body {
 }
 .buy-view > .nft-container > section {
   margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
 .portfolio-view {
   display: flex;
