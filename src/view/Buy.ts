@@ -180,6 +180,7 @@ export default class Buy implements View {
     }
 
     private async loadNFTs() {
+        this.nftList.empty();
         const address = await Wallet.loadAddress();
         if (address !== undefined) {
             const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();

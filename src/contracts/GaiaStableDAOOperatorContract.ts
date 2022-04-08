@@ -1,7 +1,9 @@
 import { BigNumber, BigNumberish } from "ethers";
 import Config from "../Config";
+import Wallet from "../klaytn/Wallet";
 import GaiaStableDAOOperatorArtifact from "./abi/artifacts/contracts/GaiaStableDAOOperator.sol/GaiaStableDAOOperator.json";
 import Contract from "./Contract";
+import GaiaStableDAOContract from "./GaiaStableDAOContract";
 
 class GaiaStableDAOOperatorContract extends Contract {
 
@@ -17,12 +19,22 @@ class GaiaStableDAOOperatorContract extends Contract {
         return BigNumber.from(await this.runMethod("mintedAmountWithGaiaSupernova", user));
     }
 
+    public async whitelistedAmount(user: string): Promise<BigNumber> {
+        return BigNumber.from(await this.runMethod("whitelistedAmount", user));
+    }
+
     public async mintStableDAO(amount: BigNumberish, nft: string): Promise<void> {
         await this.runWalletMethod2("mintStableDAO", amount, nft);
     }
 
     public async buyBack(ids: BigNumberish[]): Promise<void> {
-        await this.runWalletMethod("buyBack", ids);
+        const owner = await Wallet.loadAddress();
+        if (owner !== undefined) {
+            if (await GaiaStableDAOContract.isApprovedForAll(owner, this.address) !== true) {
+                await GaiaStableDAOContract.setApprovalForAll(this.address, true);
+            }
+            await this.runWalletMethod("buyBack", ids);
+        }
     }
 }
 
