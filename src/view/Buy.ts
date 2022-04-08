@@ -75,6 +75,8 @@ export default class Buy implements View {
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
+                            alert("아직 구매가 불가능합니다.");
+                            return;
                             let nft = constants.AddressZero;
                             if (this.tabType === "kronos") {
                                 nft = GaiaKronosContract.address;

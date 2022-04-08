@@ -59,6 +59,8 @@ export default class Buy implements View {
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
+                            alert("아직 구매가 불가능합니다.");
+                            return;
                             const nft = "0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF";
                             if (this.count.toNumber() > 10) {
                                 new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
