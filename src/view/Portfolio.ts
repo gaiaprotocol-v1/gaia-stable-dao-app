@@ -26,7 +26,7 @@ export default class Portfolio implements View {
     private async loadInterest() {
         const kusdtInterest = await GaiaStableDAOOperatorContract.claimableInterest();
         const kspInterest = await GaiaStableDAOOperatorContract.claimableKSPReward();
-        this.interestDisplay.empty().appendText(`쌓여진 이자: ${utils.formatUnits(kusdtInterest, 6)} | KUSDT: ${utils.formatEther(kspInterest)} KSP`);
+        this.interestDisplay.empty().appendText(`쌓여진 이자: ${utils.formatUnits(kusdtInterest, 6)} KUSDT | ${utils.formatEther(kspInterest)} KSP`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
