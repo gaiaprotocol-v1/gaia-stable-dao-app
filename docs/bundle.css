@@ -1249,6 +1249,7 @@ body {
   margin-top: 64px;
   border-radius: 1rem;
   padding: 32px;
+  padding-bottom: 60px;
   max-width: 768px;
   margin: auto;
   justify-content: center;
