@@ -11,6 +11,14 @@ class GaiaStableDAOOperatorContract extends Contract {
         super(Config.contracts.GaiaStableDAOOperator, GaiaStableDAOOperatorArtifact.abi);
     }
 
+    public async claimableInterest(): Promise<BigNumber> {
+        return BigNumber.from(await this.runMethod("claimableInterest"));
+    }
+
+    public async claimableKSPReward(): Promise<BigNumber> {
+        return BigNumber.from(await this.runMethod("claimableKSPReward"));
+    }
+
     public async mintedAmountWithGaiaKronos(user: string): Promise<BigNumber> {
         return BigNumber.from(await this.runMethod("mintedAmountWithGaiaKronos", user));
     }

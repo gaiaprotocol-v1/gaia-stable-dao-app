@@ -16,6 +16,8 @@ export interface GaiaStableDAOOperatorInterface extends utils.Interface {
         "claimInterest()": FunctionFragment;
         "claimKSPReward()": FunctionFragment;
         "claimTokens(address)": FunctionFragment;
+        "claimableInterest()": FunctionFragment;
+        "claimableKSPReward()": FunctionFragment;
         "devFund()": FunctionFragment;
         "emergencyWithdraw(uint256)": FunctionFragment;
         "estimateNeededKlayForZapping(uint256)": FunctionFragment;
@@ -48,6 +50,8 @@ export interface GaiaStableDAOOperatorInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "claimInterest", values?: undefined): string;
     encodeFunctionData(functionFragment: "claimKSPReward", values?: undefined): string;
     encodeFunctionData(functionFragment: "claimTokens", values: [string]): string;
+    encodeFunctionData(functionFragment: "claimableInterest", values?: undefined): string;
+    encodeFunctionData(functionFragment: "claimableKSPReward", values?: undefined): string;
     encodeFunctionData(functionFragment: "devFund", values?: undefined): string;
     encodeFunctionData(functionFragment: "emergencyWithdraw", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "estimateNeededKlayForZapping", values: [BigNumberish]): string;
@@ -79,6 +83,8 @@ export interface GaiaStableDAOOperatorInterface extends utils.Interface {
     decodeFunctionResult(functionFragment: "claimInterest", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "claimKSPReward", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "claimTokens", data: BytesLike): Result;
+    decodeFunctionResult(functionFragment: "claimableInterest", data: BytesLike): Result;
+    decodeFunctionResult(functionFragment: "claimableKSPReward", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "devFund", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "emergencyWithdraw", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "estimateNeededKlayForZapping", data: BytesLike): Result;
@@ -199,6 +205,8 @@ export interface GaiaStableDAOOperator extends BaseContract {
         claimTokens(token: string, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
+        claimableInterest(overrides?: CallOverrides): Promise<[BigNumber]>;
+        claimableKSPReward(overrides?: CallOverrides): Promise<[BigNumber]>;
         devFund(overrides?: CallOverrides): Promise<[string]>;
         emergencyWithdraw(iKUSDTAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
@@ -259,6 +267,8 @@ export interface GaiaStableDAOOperator extends BaseContract {
     claimTokens(token: string, overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
+    claimableInterest(overrides?: CallOverrides): Promise<BigNumber>;
+    claimableKSPReward(overrides?: CallOverrides): Promise<BigNumber>;
     devFund(overrides?: CallOverrides): Promise<string>;
     emergencyWithdraw(iKUSDTAmount: BigNumberish, overrides?: Overrides & {
         from?: string | Promise<string>;
@@ -309,6 +319,8 @@ export interface GaiaStableDAOOperator extends BaseContract {
         claimInterest(overrides?: CallOverrides): Promise<void>;
         claimKSPReward(overrides?: CallOverrides): Promise<void>;
         claimTokens(token: string, overrides?: CallOverrides): Promise<void>;
+        claimableInterest(overrides?: CallOverrides): Promise<BigNumber>;
+        claimableKSPReward(overrides?: CallOverrides): Promise<BigNumber>;
         devFund(overrides?: CallOverrides): Promise<string>;
         emergencyWithdraw(iKUSDTAmount: BigNumberish, overrides?: CallOverrides): Promise<void>;
         estimateNeededKlayForZapping(totalKUSDTAmount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
@@ -366,6 +378,8 @@ export interface GaiaStableDAOOperator extends BaseContract {
         claimTokens(token: string, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
+        claimableInterest(overrides?: CallOverrides): Promise<BigNumber>;
+        claimableKSPReward(overrides?: CallOverrides): Promise<BigNumber>;
         devFund(overrides?: CallOverrides): Promise<BigNumber>;
         emergencyWithdraw(iKUSDTAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
@@ -425,6 +439,8 @@ export interface GaiaStableDAOOperator extends BaseContract {
         claimTokens(token: string, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
+        claimableInterest(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+        claimableKSPReward(overrides?: CallOverrides): Promise<PopulatedTransaction>;
         devFund(overrides?: CallOverrides): Promise<PopulatedTransaction>;
         emergencyWithdraw(iKUSDTAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;

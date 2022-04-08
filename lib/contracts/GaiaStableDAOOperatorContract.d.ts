@@ -2,6 +2,8 @@ import { BigNumber, BigNumberish } from "ethers";
 import Contract from "./Contract";
 declare class GaiaStableDAOOperatorContract extends Contract {
     constructor();
+    claimableInterest(): Promise<BigNumber>;
+    claimableKSPReward(): Promise<BigNumber>;
     mintedAmountWithGaiaKronos(user: string): Promise<BigNumber>;
     mintedAmountWithGaiaSupernova(user: string): Promise<BigNumber>;
     whitelistedAmount(user: string): Promise<BigNumber>;

@@ -47,6 +47,7 @@ export interface GaiaStableDAOInterface extends utils.Interface {
     "ownerOf(uint256)": FunctionFragment;
     "pause()": FunctionFragment;
     "paused()": FunctionFragment;
+    "removeMinter(address)": FunctionFragment;
     "renounceMinter()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "renouncePauser()": FunctionFragment;
@@ -118,6 +119,10 @@ export interface GaiaStableDAOInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "pause", values?: undefined): string;
   encodeFunctionData(functionFragment: "paused", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "removeMinter",
+    values: [string]
+  ): string;
   encodeFunctionData(
     functionFragment: "renounceMinter",
     values?: undefined
@@ -218,6 +223,10 @@ export interface GaiaStableDAOInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "pause", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "removeMinter",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "renounceMinter",
     data: BytesLike
@@ -505,6 +514,11 @@ export interface GaiaStableDAO extends BaseContract {
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
 
+    removeMinter(
+      target: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     renounceMinter(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -684,6 +698,11 @@ export interface GaiaStableDAO extends BaseContract {
 
   paused(overrides?: CallOverrides): Promise<boolean>;
 
+  removeMinter(
+    target: string,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   renounceMinter(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -845,6 +864,8 @@ export interface GaiaStableDAO extends BaseContract {
     pause(overrides?: CallOverrides): Promise<void>;
 
     paused(overrides?: CallOverrides): Promise<boolean>;
+
+    removeMinter(target: string, overrides?: CallOverrides): Promise<void>;
 
     renounceMinter(overrides?: CallOverrides): Promise<void>;
 
@@ -1089,6 +1110,11 @@ export interface GaiaStableDAO extends BaseContract {
 
     paused(overrides?: CallOverrides): Promise<BigNumber>;
 
+    removeMinter(
+      target: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     renounceMinter(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -1283,6 +1309,11 @@ export interface GaiaStableDAO extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    removeMinter(
+      target: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
 
     renounceMinter(
       overrides?: Overrides & { from?: string | Promise<string> }

@@ -27,6 +27,7 @@ export interface GaiaStableDAOInterface extends utils.Interface {
         "ownerOf(uint256)": FunctionFragment;
         "pause()": FunctionFragment;
         "paused()": FunctionFragment;
+        "removeMinter(address)": FunctionFragment;
         "renounceMinter()": FunctionFragment;
         "renounceOwnership()": FunctionFragment;
         "renouncePauser()": FunctionFragment;
@@ -70,6 +71,7 @@ export interface GaiaStableDAOInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "ownerOf", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "pause", values?: undefined): string;
     encodeFunctionData(functionFragment: "paused", values?: undefined): string;
+    encodeFunctionData(functionFragment: "removeMinter", values: [string]): string;
     encodeFunctionData(functionFragment: "renounceMinter", values?: undefined): string;
     encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
     encodeFunctionData(functionFragment: "renouncePauser", values?: undefined): string;
@@ -112,6 +114,7 @@ export interface GaiaStableDAOInterface extends utils.Interface {
     decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "pause", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
+    decodeFunctionResult(functionFragment: "removeMinter", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "renounceMinter", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "renouncePauser", data: BytesLike): Result;
@@ -309,6 +312,9 @@ export interface GaiaStableDAO extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
         paused(overrides?: CallOverrides): Promise<[boolean]>;
+        removeMinter(target: string, overrides?: Overrides & {
+            from?: string | Promise<string>;
+        }): Promise<ContractTransaction>;
         renounceMinter(overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
@@ -395,6 +401,9 @@ export interface GaiaStableDAO extends BaseContract {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
     paused(overrides?: CallOverrides): Promise<boolean>;
+    removeMinter(target: string, overrides?: Overrides & {
+        from?: string | Promise<string>;
+    }): Promise<ContractTransaction>;
     renounceMinter(overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
@@ -469,6 +478,7 @@ export interface GaiaStableDAO extends BaseContract {
         ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
         pause(overrides?: CallOverrides): Promise<void>;
         paused(overrides?: CallOverrides): Promise<boolean>;
+        removeMinter(target: string, overrides?: CallOverrides): Promise<void>;
         renounceMinter(overrides?: CallOverrides): Promise<void>;
         renounceOwnership(overrides?: CallOverrides): Promise<void>;
         renouncePauser(overrides?: CallOverrides): Promise<void>;
@@ -560,6 +570,9 @@ export interface GaiaStableDAO extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
         paused(overrides?: CallOverrides): Promise<BigNumber>;
+        removeMinter(target: string, overrides?: Overrides & {
+            from?: string | Promise<string>;
+        }): Promise<BigNumber>;
         renounceMinter(overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
@@ -647,6 +660,9 @@ export interface GaiaStableDAO extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
         paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+        removeMinter(target: string, overrides?: Overrides & {
+            from?: string | Promise<string>;
+        }): Promise<PopulatedTransaction>;
         renounceMinter(overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;

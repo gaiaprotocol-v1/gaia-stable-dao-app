@@ -74,6 +74,19 @@ const _abi = [
   },
   {
     inputs: [],
+    name: "miningIndex",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "totalBorrows",
     outputs: [
       {
@@ -101,6 +114,25 @@ const _abi = [
   {
     inputs: [],
     name: "totalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
+    ],
+    name: "userLastIndex",
     outputs: [
       {
         internalType: "uint256",

@@ -15,6 +15,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
         "depositKct(uint256)": FunctionFragment;
         "exchangeRateStored()": FunctionFragment;
         "getCash()": FunctionFragment;
+        "miningIndex()": FunctionFragment;
         "mint(address,uint256)": FunctionFragment;
         "safeTransfer(address,uint256)": FunctionFragment;
         "safeTransferFrom(address,address,uint256)": FunctionFragment;
@@ -25,6 +26,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
         "transfer(address,uint256)": FunctionFragment;
         "transferFrom(address,address,uint256)": FunctionFragment;
         "transferInternal(address,address,uint256)": FunctionFragment;
+        "userLastIndex(address)": FunctionFragment;
         "withdraw(uint256)": FunctionFragment;
         "withdrawByAmount(uint256)": FunctionFragment;
     };
@@ -38,6 +40,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "depositKct", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "exchangeRateStored", values?: undefined): string;
     encodeFunctionData(functionFragment: "getCash", values?: undefined): string;
+    encodeFunctionData(functionFragment: "miningIndex", values?: undefined): string;
     encodeFunctionData(functionFragment: "mint", values: [string, BigNumberish]): string;
     encodeFunctionData(functionFragment: "safeTransfer", values: [string, BigNumberish]): string;
     encodeFunctionData(functionFragment: "safeTransferFrom", values: [string, string, BigNumberish]): string;
@@ -48,6 +51,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "transfer", values: [string, BigNumberish]): string;
     encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
     encodeFunctionData(functionFragment: "transferInternal", values: [string, string, BigNumberish]): string;
+    encodeFunctionData(functionFragment: "userLastIndex", values: [string]): string;
     encodeFunctionData(functionFragment: "withdraw", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "withdrawByAmount", values: [BigNumberish]): string;
     decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
@@ -60,6 +64,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
     decodeFunctionResult(functionFragment: "depositKct", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "exchangeRateStored", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "getCash", data: BytesLike): Result;
+    decodeFunctionResult(functionFragment: "miningIndex", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "safeTransfer", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "safeTransferFrom", data: BytesLike): Result;
@@ -70,6 +75,7 @@ export interface MockUSDTPoolInterface extends utils.Interface {
     decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "transferFrom", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "transferInternal", data: BytesLike): Result;
+    decodeFunctionResult(functionFragment: "userLastIndex", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "withdrawByAmount", data: BytesLike): Result;
     events: {
@@ -137,6 +143,7 @@ export interface MockUSDTPool extends BaseContract {
         }): Promise<ContractTransaction>;
         exchangeRateStored(overrides?: CallOverrides): Promise<[BigNumber]>;
         getCash(overrides?: CallOverrides): Promise<[BigNumber]>;
+        miningIndex(overrides?: CallOverrides): Promise<[BigNumber]>;
         mint(account: string, amount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
@@ -165,6 +172,7 @@ export interface MockUSDTPool extends BaseContract {
         transferInternal(from: string, to: string, value: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
+        userLastIndex(user: string, overrides?: CallOverrides): Promise<[BigNumber]>;
         withdraw(withdrawAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
@@ -194,6 +202,7 @@ export interface MockUSDTPool extends BaseContract {
     }): Promise<ContractTransaction>;
     exchangeRateStored(overrides?: CallOverrides): Promise<BigNumber>;
     getCash(overrides?: CallOverrides): Promise<BigNumber>;
+    miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
     mint(account: string, amount: BigNumberish, overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
@@ -222,6 +231,7 @@ export interface MockUSDTPool extends BaseContract {
     transferInternal(from: string, to: string, value: BigNumberish, overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
+    userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
     withdraw(withdrawAmount: BigNumberish, overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
@@ -239,6 +249,7 @@ export interface MockUSDTPool extends BaseContract {
         depositKct(depositAmount: BigNumberish, overrides?: CallOverrides): Promise<void>;
         exchangeRateStored(overrides?: CallOverrides): Promise<BigNumber>;
         getCash(overrides?: CallOverrides): Promise<BigNumber>;
+        miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
         mint(account: string, amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
         "safeTransfer(address,uint256)"(recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
         "safeTransfer(address,uint256,bytes)"(recipient: string, amount: BigNumberish, data: BytesLike, overrides?: CallOverrides): Promise<void>;
@@ -251,6 +262,7 @@ export interface MockUSDTPool extends BaseContract {
         transfer(recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
         transferFrom(sender: string, recipient: string, amount: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
         transferInternal(from: string, to: string, value: BigNumberish, overrides?: CallOverrides): Promise<void>;
+        userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
         withdraw(withdrawAmount: BigNumberish, overrides?: CallOverrides): Promise<void>;
         withdrawByAmount(withdrawTokens: BigNumberish, overrides?: CallOverrides): Promise<void>;
     };
@@ -283,6 +295,7 @@ export interface MockUSDTPool extends BaseContract {
         }): Promise<BigNumber>;
         exchangeRateStored(overrides?: CallOverrides): Promise<BigNumber>;
         getCash(overrides?: CallOverrides): Promise<BigNumber>;
+        miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
         mint(account: string, amount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
@@ -311,6 +324,7 @@ export interface MockUSDTPool extends BaseContract {
         transferInternal(from: string, to: string, value: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
+        userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
         withdraw(withdrawAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
@@ -341,6 +355,7 @@ export interface MockUSDTPool extends BaseContract {
         }): Promise<PopulatedTransaction>;
         exchangeRateStored(overrides?: CallOverrides): Promise<PopulatedTransaction>;
         getCash(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+        miningIndex(overrides?: CallOverrides): Promise<PopulatedTransaction>;
         mint(account: string, amount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
@@ -369,6 +384,7 @@ export interface MockUSDTPool extends BaseContract {
         transferInternal(from: string, to: string, value: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
+        userLastIndex(user: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
         withdraw(withdrawAmount: BigNumberish, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;

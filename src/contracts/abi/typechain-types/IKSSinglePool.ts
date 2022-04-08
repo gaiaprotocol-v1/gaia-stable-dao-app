@@ -30,9 +30,11 @@ export interface IKSSinglePoolInterface extends utils.Interface {
     "depositKct(uint256)": FunctionFragment;
     "exchangeRateStored()": FunctionFragment;
     "getCash()": FunctionFragment;
+    "miningIndex()": FunctionFragment;
     "totalBorrows()": FunctionFragment;
     "totalReserves()": FunctionFragment;
     "totalSupply()": FunctionFragment;
+    "userLastIndex(address)": FunctionFragment;
     "withdraw(uint256)": FunctionFragment;
     "withdrawByAmount(uint256)": FunctionFragment;
   };
@@ -52,6 +54,10 @@ export interface IKSSinglePoolInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "getCash", values?: undefined): string;
   encodeFunctionData(
+    functionFragment: "miningIndex",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "totalBorrows",
     values?: undefined
   ): string;
@@ -62,6 +68,10 @@ export interface IKSSinglePoolInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "totalSupply",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "userLastIndex",
+    values: [string]
   ): string;
   encodeFunctionData(
     functionFragment: "withdraw",
@@ -84,6 +94,10 @@ export interface IKSSinglePoolInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "getCash", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "miningIndex",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "totalBorrows",
     data: BytesLike
   ): Result;
@@ -93,6 +107,10 @@ export interface IKSSinglePoolInterface extends utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "totalSupply",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "userLastIndex",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
@@ -147,11 +165,18 @@ export interface IKSSinglePool extends BaseContract {
 
     getCash(overrides?: CallOverrides): Promise<[BigNumber]>;
 
+    miningIndex(overrides?: CallOverrides): Promise<[BigNumber]>;
+
     totalBorrows(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     totalReserves(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    userLastIndex(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber]>;
 
     withdraw(
       withdrawAmount: BigNumberish,
@@ -179,11 +204,15 @@ export interface IKSSinglePool extends BaseContract {
 
   getCash(overrides?: CallOverrides): Promise<BigNumber>;
 
+  miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
+
   totalBorrows(overrides?: CallOverrides): Promise<BigNumber>;
 
   totalReserves(overrides?: CallOverrides): Promise<BigNumber>;
 
   totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+
+  userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   withdraw(
     withdrawAmount: BigNumberish,
@@ -209,11 +238,15 @@ export interface IKSSinglePool extends BaseContract {
 
     getCash(overrides?: CallOverrides): Promise<BigNumber>;
 
+    miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
+
     totalBorrows(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalReserves(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+
+    userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     withdraw(
       withdrawAmount: BigNumberish,
@@ -244,11 +277,15 @@ export interface IKSSinglePool extends BaseContract {
 
     getCash(overrides?: CallOverrides): Promise<BigNumber>;
 
+    miningIndex(overrides?: CallOverrides): Promise<BigNumber>;
+
     totalBorrows(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalReserves(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
+
+    userLastIndex(user: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     withdraw(
       withdrawAmount: BigNumberish,
@@ -282,11 +319,18 @@ export interface IKSSinglePool extends BaseContract {
 
     getCash(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    miningIndex(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
     totalBorrows(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     totalReserves(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    userLastIndex(
+      user: string,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
     withdraw(
       withdrawAmount: BigNumberish,
