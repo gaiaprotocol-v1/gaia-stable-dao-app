@@ -14,12 +14,16 @@ export default class Buy implements View {
     private salesDisplay;
     private approveButton;
     private buyButton;
+    private nftList;
+    private tokenIds;
     private tabStore;
     private interval;
     constructor();
+    private loadNFTsDebouncer;
     private loadSales;
     private loadTab;
     private loadTotal;
+    private loadNFTs;
     changeParams(params: ViewParams, uri: string): void;
     close(): void;
 }

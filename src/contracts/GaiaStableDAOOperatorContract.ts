@@ -9,18 +9,6 @@ class GaiaStableDAOOperatorContract extends Contract {
         super(Config.contracts.GaiaStableDAOOperator, GaiaStableDAOOperatorArtifact.abi);
     }
 
-    public async PUBLICPRICE(): Promise<BigNumber> {
-        return BigNumber.from(await this.runMethod("PUBLICPRICE"));
-    }
-
-    public async BUYBACKPRICE(): Promise<BigNumber> {
-        return BigNumber.from(await this.runMethod("BUYBACKPRICE"));
-    }
-
-    public async PRICEWITHSUPERNOVA(): Promise<BigNumber> {
-        return BigNumber.from(await this.runMethod("PRICEWITHSUPERNOVA"));
-    }
-
     public async mintedAmountWithGaiaKronos(user: string): Promise<BigNumber> {
         return BigNumber.from(await this.runMethod("mintedAmountWithGaiaKronos", user));
     }
@@ -30,7 +18,11 @@ class GaiaStableDAOOperatorContract extends Contract {
     }
 
     public async mintStableDAO(amount: BigNumberish, nft: string): Promise<void> {
-        await this.runWalletMethod("mintStableDAO", amount, nft);
+        await this.runWalletMethod2("mintStableDAO", amount, nft);
+    }
+
+    public async buyBack(ids: BigNumberish[]): Promise<void> {
+        await this.runWalletMethod("buyBack", ids);
     }
 }
 

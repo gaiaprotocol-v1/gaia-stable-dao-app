@@ -1,6 +1,8 @@
 import { BigNumber, constants, utils } from "ethers";
 import { DomNode, el, msg, Store } from "skydapp-browser";
-import { View, ViewParams } from "skydapp-common";
+import { Debouncer, SkyUtil, View, ViewParams } from "skydapp-common";
+import CommonUtil from "../CommonUtil";
+import NftItem from "../component/NftItem";
 import Alert from "../component/shared/dialogue/Alert";
 import GaiaKronosContract from "../contracts/GaiaKronosContract";
 import GaiaStableDAOContract from "../contracts/GaiaStableDAOContract";
@@ -9,6 +11,7 @@ import GaiaSupernovaContract from "../contracts/GaiaSupernovaContract";
 import KUSDTContract from "../contracts/KUSDTContract";
 import Wallet from "../klaytn/Wallet";
 import Layout from "./Layout";
+import ViewUtil from "./ViewUtil";
 
 export default class Buy implements View {
 
@@ -30,6 +33,10 @@ export default class Buy implements View {
 
     private approveButton: DomNode;
     private buyButton: DomNode;
+
+    private nftList: DomNode;
+
+    private tokenIds: number[] = [];
 
     private tabStore: Store = new Store("tab-store");
 
@@ -64,13 +71,10 @@ export default class Buy implements View {
                 }),
                 el(".button-container",
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
-                        //click: () => KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256),
+                        click: () => KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256),
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
-                            alert("아직 구매할 수 없습니다.");
-                            return;
-
                             let nft = constants.AddressZero;
                             if (this.tabType === "kronos") {
                                 nft = GaiaKronosContract.address;
@@ -85,6 +89,7 @@ export default class Buy implements View {
                             } else {
                                 await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
                                 new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
+                                ViewUtil.waitTransactionAndRefresh();
                             }
                         },
                     }),
@@ -93,9 +98,7 @@ export default class Buy implements View {
             ),
             el(".nft-container",
                 el("h2", msg("MY_NFT_TITLE")),
-                el("section",
-                    // new NftItem(),
-                ),
+                this.nftList = el("section"),
             ),
         ));
 
@@ -106,7 +109,12 @@ export default class Buy implements View {
         } else {
             this.loadTab(this.tabStore.get("type") as any);
         }
+
+        this.loadNFTsDebouncer.run();
+        Wallet.on("connect", () => this.loadNFTsDebouncer.run());
     }
+
+    private loadNFTsDebouncer: Debouncer = new Debouncer(200, () => this.loadNFTs());
 
     private async loadSales() {
         const sales = await GaiaStableDAOContract.totalSupply();
@@ -137,7 +145,7 @@ export default class Buy implements View {
 
         if (type === "kronos") {
             this.kronosTab.deleteClass("disable");
-            this.price = await GaiaStableDAOOperatorContract.BUYBACKPRICE();
+            this.price = utils.parseUnits("1200", 6);
             const address = await Wallet.loadAddress();
             if (address !== undefined) {
                 const balance = (await GaiaKronosContract.balanceOf(address)).toNumber();
@@ -148,7 +156,7 @@ export default class Buy implements View {
         }
         if (type === "supernova") {
             this.supernovaTab.deleteClass("disable");
-            this.price = await GaiaStableDAOOperatorContract.PRICEWITHSUPERNOVA();
+            this.price = utils.parseUnits("1250", 6);
             const address = await Wallet.loadAddress();
             if (address !== undefined) {
                 const balance = (await GaiaSupernovaContract.balanceOf(address)).toNumber();
@@ -159,16 +167,42 @@ export default class Buy implements View {
         }
         if (type === "public") {
             this.publicTab.deleteClass("disable");
-            this.price = await GaiaStableDAOOperatorContract.PUBLICPRICE();
+            this.price = utils.parseUnits("1300", 6);
             this.ticketDisplay.style({ display: "none" });
         }
 
-        this.priceDisplay.empty().appendText(`PRICE: ${utils.formatUnits(this.price, 6)} KUSDT`);
+        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} KUSDT`);
         this.loadTotal();
     }
 
     private async loadTotal() {
-        this.totalDisplay.empty().appendText(`TOTAL: ${utils.formatUnits(this.count.mul(this.price), 6)} KUSDT`);
+        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} KUSDT`);
+    }
+
+    private async loadNFTs() {
+        const address = await Wallet.loadAddress();
+        if (address !== undefined) {
+            const balance = (await GaiaStableDAOContract.balanceOf(address)).toNumber();
+            const promises: Promise<void>[] = [];
+
+            this.tokenIds = [];
+            SkyUtil.repeat(balance, (i: number) => {
+                const promise = async (index: number) => {
+                    const item = new NftItem().appendTo(this.nftList);
+                    const tokenId = (await GaiaStableDAOContract.tokenOfOwnerByIndex(address, index)).toNumber();
+                    if (tokenId === 0) {
+                        item.delete();
+                    } else {
+                        item.init(tokenId);
+                        this.tokenIds.push(tokenId);
+                    }
+                };
+                promises.push(promise(i));
+            });
+            await Promise.all(promises);
+        }
+        const promises: Promise<void>[] = [];
+        await Promise.all(promises);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
