@@ -56,11 +56,21 @@ export default class Buy implements View {
                 }),
                 el(".button-container",
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
-                        click: () => KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256),
+                        click: async () => {
+                            const address = await Wallet.loadAddress();
+                            if (address !== undefined && (await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
+                                await KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256);
+                            } else {
+                                new Alert("오류", "이미 사용 승인 하셨습니다.");
+                            }
+                        },
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
-                            if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+                            const address = await Wallet.loadAddress();
+                            if (address !== undefined && (await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
+                                new Alert("오류", "KUSDT 사용 승인이 필요합니다.");
+                            } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
                                 new Alert("오류", "아직 판매중이 아닙니다.");
                             } else {
                                 const nft = "0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF";
