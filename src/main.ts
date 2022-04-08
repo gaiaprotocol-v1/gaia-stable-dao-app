@@ -1,6 +1,7 @@
 import { BrowserInfo, msg } from "skydapp-browser";
 import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
+import Wallet from "./klaytn/Wallet";
 import Buy from "./view/Buy";
 import BuyMetaverseForum from "./view/BuyMetaverseForum";
 import Landing from "./view/Landing";
@@ -21,5 +22,9 @@ import Portfolio from "./view/Portfolio";
     if (sessionStorage.__spa_path) {
         SkyRouter.go(sessionStorage.__spa_path);
         sessionStorage.removeItem("__spa_path");
+    }
+
+    if (await Wallet.connected() !== true) {
+        await Wallet.connect();
     }
 })();
