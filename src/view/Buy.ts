@@ -75,36 +75,40 @@ export default class Buy implements View {
                     this.approveButton = el("a.disabled", msg("BUY_APPROVE_BUTTON"), {
                         click: async () => {
                             const address = await Wallet.loadAddress();
-                            if (address !== undefined && (await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
-                                await KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256);
-                            } else {
-                                new Alert("오류", "이미 사용 승인 하셨습니다.");
+                            if (address !== undefined) {
+                                if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
+                                    await KUSDTContract.approve(GaiaStableDAOOperatorContract.address, constants.MaxUint256);
+                                } else {
+                                    new Alert("오류", "이미 사용 승인 하셨습니다.");
+                                }
                             }
                         },
                     }),
                     this.buyButton = el("a.disabled", msg("BUY_NFT_BUTTON"), {
                         click: async () => {
                             const address = await Wallet.loadAddress();
-                            if (address !== undefined && (await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
-                                new Alert("오류", "KUSDT 사용 승인이 필요합니다.");
-                            } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
-                                new Alert("오류", "아직 판매중이 아닙니다.");
-                            } else {
-                                let nft = constants.AddressZero;
-                                if (this.tabType === "kronos") {
-                                    nft = GaiaKronosContract.address;
-                                }
-                                if (this.tabType === "supernova") {
-                                    nft = GaiaSupernovaContract.address;
-                                }
-                                if (this.count.toNumber() > 10) {
-                                    new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
-                                } else if (this.count.toNumber() > this.ticket) {
-                                    new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
+                            if (address !== undefined) {
+                                if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
+                                    new Alert("오류", "KUSDT 사용 승인이 필요합니다.");
+                                } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
+                                    new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
-                                    await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
-                                    new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
-                                    ViewUtil.waitTransactionAndRefresh();
+                                    let nft = constants.AddressZero;
+                                    if (this.tabType === "kronos") {
+                                        nft = GaiaKronosContract.address;
+                                    }
+                                    if (this.tabType === "supernova") {
+                                        nft = GaiaSupernovaContract.address;
+                                    }
+                                    if (this.count.toNumber() > 10) {
+                                        new Alert("오류", "한 번에 최대 10개까지 구매가 가능합니다.");
+                                    } else if (this.count.toNumber() > this.ticket) {
+                                        new Alert("오류", `갖고 계신 티켓 개수는 ${this.ticket}개 입니다.`);
+                                    } else {
+                                        await GaiaStableDAOOperatorContract.mintStableDAO(this.count, nft);
+                                        new Alert("구매 성공!", "Gaia Stable DAO 구매에 성공했습니다. 환영합니다!");
+                                        ViewUtil.waitTransactionAndRefresh();
+                                    }
                                 }
                             }
                         },
