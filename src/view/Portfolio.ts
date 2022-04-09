@@ -15,7 +15,7 @@ export default class Portfolio implements View {
         Layout.current.title = msg("PORTFOLIO_TITLE");
         Layout.current.content.append(this.container = el(".portfolio-view",
             el("h1", "Portfolio"),
-            this.interestDisplay = el("h2"),
+            this.interestDisplay = el("h2", "..."),
             el("section",
                 el("p", "아직 이자를 통한 투자가 이루어지지 않았습니다."),
                 //new PortfolioItem()
@@ -33,7 +33,7 @@ export default class Portfolio implements View {
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
         const krw = dollar * data2[0].basePrice;
-        this.interestDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} KUSDT | ${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP\n한화 ${CommonUtil.numberWithCommas(String(krw))} 원`);
+        this.interestDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} KUSDT | ${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP\n총 한화 ${CommonUtil.numberWithCommas(String(krw))} 원`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
