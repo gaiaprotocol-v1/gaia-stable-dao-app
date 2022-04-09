@@ -1437,6 +1437,7 @@ body {
 .portfolio-view > h2 {
   font-size: 14px;
   margin-bottom: 64px;
+  line-height: 2em;
 }
 .portfolio-view > section > p {
   font-size: 21px;

@@ -1,6 +1,7 @@
 import { utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
+import CommonUtil from "../CommonUtil";
 import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
 import Layout from "./Layout";
 
@@ -26,7 +27,13 @@ export default class Portfolio implements View {
     private async loadInterest() {
         const kusdtInterest = await GaiaStableDAOOperatorContract.claimableInterest();
         const kspInterest = await GaiaStableDAOOperatorContract.claimableKSPReward();
-        this.interestDisplay.empty().appendText(`쌓여진 이자: ${utils.formatUnits(kusdtInterest, 6)} KUSDT | ${utils.formatEther(kspInterest)} KSP`);
+        const result = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=klayswap-protocol");
+        const data = await result.json();
+        const dollar = parseInt(utils.formatUnits(kusdtInterest, 6), 10) + data[0].current_price * parseInt(utils.formatEther(kspInterest), 10);
+        const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
+        const data2 = await result2.json();
+        const krw = dollar * data2[0].basePrice;
+        this.interestDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} KUSDT | ${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP\n한화 ${CommonUtil.numberWithCommas(String(krw))} 원`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
