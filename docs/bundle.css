@@ -1255,10 +1255,8 @@ body {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
-  font-family: trajan-pro-3, serif;
 }
 .buy-view > h1 {
-  font-family: trajan-pro-3, serif;
   font-weight: 700;
   font-size: 32px;
   margin-bottom: 64px;
@@ -1273,8 +1271,9 @@ body {
   }
 }
 .buy-view > .selector-container > p {
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 16px;
+  font-weight: 300;
 }
 .buy-view > .selector-container > .select {
   margin-top: 16px;
@@ -1288,6 +1287,7 @@ body {
 .buy-view > .selector-container > .select > a.disable {
   padding: 12px;
   color: #676767;
+  font-weight: 400;
 }
 .buy-view > .selector-container > .select > a.disable:hover {
   border-bottom: solid 3px #00445a;
@@ -1295,6 +1295,7 @@ body {
 .buy-view > .selector-container > .select > a {
   width: 100%;
   padding: 12px;
+  font-weight: 700;
   color: #00445a;
 }
 .buy-view > .selector-container > .select > a:hover {
@@ -1321,8 +1322,9 @@ body {
   width: 100%;
 }
 .buy-view > .input-container > p {
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 300;
 }
 .buy-view > .input-container > input {
   color: white;
@@ -1379,17 +1381,17 @@ body {
   font-size: 14px;
   text-decoration: none;
   background-color: transparent;
-  border: 1px solid #e0d8c8;
-  color: #e0d8c8;
+  border: 1px solid #00445a;
+  color: white;
   border-radius: 4px;
   justify-content: center;
   align-items: center;
 }
 .buy-view > .input-container > .usdt:hover {
-  background-color: rgba(224, 216, 200, 0.2);
+  background-color: rgba(0, 68, 90, 0.2);
 }
 .buy-view > .input-container > .usdt:active {
-  background-color: rgba(224, 216, 200, 0.5);
+  background-color: rgba(0, 68, 90, 0.5);
 }
 .buy-view > .nft-container {
   display: flex;
@@ -1405,12 +1407,13 @@ body {
 }
 .buy-view > .nft-container > h2 {
   font-weight: 700;
-  font-size: 21px;
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 .buy-view > .nft-container > section {
   margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 .portfolio-view {
@@ -1445,6 +1448,7 @@ body {
   margin-top: 32px;
 }
 .portfolio-view > section > h2 {
+  font-weight: 300;
   font-size: 24px;
   margin-bottom: 32px;
 }
