@@ -1,34 +1,41 @@
 .portfolio-view {
     display         : flex;
     flex-direction  : column;
-    justify-content : center;
-    text-align      : center;
-    align-items     : center;
     margin-top      : 64px;
     border-radius   : 1rem;
     padding         : 32px;
     max-width       : 768px;
     margin          : auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius   : 8px;
-    padding         : 20px;
+    padding         : 32px;
 
     >h1 {
-        font-family  : trajan-pro-3, serif;
         font-weight  : 700;
-        font-size    : 32px;
-        margin-bottom: 8px;
+        font-size    : 36px;
+        margin-bottom: 32px;
     }
 
-    >h2 {
-        font-size    : 14px;
-        margin-bottom: 64px;
-        line-height  : 2em;
+    >.interest-container {
+        margin-top: 8px;
+
+        >.ksp {
+            font-size  : 12px;
+            margin-left: 4px;
+        }
+
+        >p {
+            margin-top: 4px;
+        }
     }
 
     >section {
-        >p {
-            font-size    : 21px;
+        width     : 100%;
+        text-align: left;
+        margin-top: 32px;
+
+        >h2 {
+            font-size    : 24px;
             margin-bottom: 32px;
         }
     }
