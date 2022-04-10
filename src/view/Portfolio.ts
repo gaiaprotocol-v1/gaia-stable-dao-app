@@ -41,7 +41,7 @@ export default class Portfolio implements View {
         const krw = dollar * data2[0].basePrice;
         this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} KUSDT`);
         this.interestKrwDisplay.empty().appendText(`총 한화: ${CommonUtil.numberWithCommas(String(krw))} 원`);
-        this.interestKspDisplay.empty().appendText(`(${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP)`);
+        this.interestKspDisplay.empty().appendText(`${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }
