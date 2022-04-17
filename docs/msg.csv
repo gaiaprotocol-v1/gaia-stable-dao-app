@@ -16,8 +16,10 @@ CONNECT_WALLET_BUTTON3,연결하지 않고 둘러보기,Explore without Wallet C
 ALERT_UNABLE_RECEIVE_TITLE,오류,Error
 ALERT_UNABLE_RECEIVE_DESC,아직 수령할 수 없습니다.,Can't receive it yet.
 SEND_PROMPT_TITLE,전송하기,Send
-SEND_PROMPT_DESC,"전송받을 지갑 주소를 입력해주시기 바랍니다. 전송이 완료되면 절대 되찾을 수 없으니, 지갑 주소를 여러번 확인하시기 바랍니다.","Please enter the wallet address to be sent. Once the transmission is completed, you can never get it back, so please check your wallet address several times."
+SEND_PROMPT_DESC,전송받을 지갑 주소를 입력해주시기 바랍니다.,Please enter the wallet address to be sent.
+SEND_PROMPT_WARNING_DESC,"전송이 완료되면 절대 되찾을 수 없으니, 지갑 주소를 여러번 확인하시기 바랍니다.",Once the transmission is completed, you can never get it back, so please check your wallet address several times.
 SEND_PROMPT_BUTTON,전송,Send
+SEND_PROMPT_INPUT,지갑주소를 입력해주세요.,Wallet Address
 BUY_TITLE,BUY & BUYBACK,BUY & BUYBACK
 BUYBACK_BUTTON,바이백,BUYBACK
 BUYBACK_CONFIRM_TITLE,바이백,BUYBACK

@@ -4,6 +4,7 @@ import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorCon
 import ViewUtil from "../view/ViewUtil";
 import Confirm from "./shared/dialogue/Confirm";
 import Prompt from "./shared/dialogue/Prompt";
+import TransferPopup from "./TransferPopup";
 
 export default class NftItem extends DomNode {
 
@@ -20,7 +21,7 @@ export default class NftItem extends DomNode {
             el("a",
                 el("img.send", { src: "/images/shared/icn/icn-send.svg", alt: "send icon" }),
                 {
-                    click: () => new Prompt(msg("SEND_PROMPT_TITLE"), msg("SEND_PROMPT_DESC"), msg("SEND_PROMPT_BUTTON"), async (to) => {
+                    click: () => new TransferPopup(async (to) => {
                         await GaiaStableDAOContract.transfer(to, this.id);
                         ViewUtil.waitTransactionAndRefresh();
                     }),
