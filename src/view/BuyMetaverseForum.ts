@@ -42,8 +42,8 @@ export default class Buy implements View {
             el(".selector-container",
                 this.salesDisplay = el("p", "SALES: ... EA"),
                 this.ticketDisplay = el("p", "TICKET: ... 개"),
-                this.priceDisplay = el("p", "PRICE: ... KUSDT"),
-                this.totalDisplay = el("p", "TOTAL: ... KUSDT"),
+                this.priceDisplay = el("p", "PRICE: ... oUSDT"),
+                this.totalDisplay = el("p", "TOTAL: ... oUSDT"),
             ),
             el(".input-container",
                 this.notice = el("p"),
@@ -72,7 +72,7 @@ export default class Buy implements View {
                             const address = await Wallet.loadAddress();
                             if (address !== undefined) {
                                 if ((await KUSDTContract.allowance(address, GaiaStableDAOOperatorContract.address)).eq(0)) {
-                                    new Alert("오류", "KUSDT 사용 승인이 필요합니다.");
+                                    new Alert("오류", "oUSDT 사용 승인이 필요합니다.");
                                 } else if (await GaiaStableDAOContract.isMinter(GaiaStableDAOOperatorContract.address) !== true) {
                                     new Alert("오류", "아직 판매중이 아닙니다.");
                                 } else {
@@ -146,12 +146,12 @@ export default class Buy implements View {
             this.ticketDisplay.empty().appendText(`TICKET: ${this.ticket} 개`);
         }
 
-        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} KUSDT`);
+        this.priceDisplay.empty().appendText(`PRICE: ${CommonUtil.numberWithCommas(utils.formatUnits(this.price, 6))} oUSDT`);
         this.loadTotal();
     }
 
     private async loadTotal() {
-        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} KUSDT`);
+        this.totalDisplay.empty().appendText(`TOTAL: ${CommonUtil.numberWithCommas(utils.formatUnits(this.count.mul(this.price), 6))} oUSDT`);
     }
 
     private async loadNFTs() {

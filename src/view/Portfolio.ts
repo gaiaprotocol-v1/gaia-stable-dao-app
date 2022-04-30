@@ -39,7 +39,7 @@ export default class Portfolio implements View {
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
         const krw = dollar * data2[0].basePrice;
-        this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} KUSDT`);
+        this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} oUSDT`);
         this.interestKrwDisplay.empty().appendText(`총 한화: ${CommonUtil.numberWithCommas(String(krw))} 원`);
         this.interestKspDisplay.empty().appendText(`+ ${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP`);
     }
