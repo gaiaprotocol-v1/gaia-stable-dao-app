@@ -1476,11 +1476,6 @@ body {
   width: 100%;
   margin-top: 64px;
 }
-@media only screen and (max-width: 719px) {
-  .buy-view > .nft-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
 .buy-view > .nft-container > h2 {
   font-weight: 700;
   font-size: 24px;
@@ -1491,6 +1486,11 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+}
+@media only screen and (max-width: 719px) {
+  .buy-view > .nft-container > section {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .portfolio-view {
   display: flex;
