@@ -743,14 +743,20 @@ body {
 .portfolio-item:hover {
   background-color: rgba(16, 16, 16, 0.9);
 }
+.portfolio-item > .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .portfolio-item > .title > h2 {
   font-family: trajan-pro-3, serif;
   font-weight: 700;
   font-size: 21px;
 }
 .portfolio-item > .title > img {
-  margin-top: 8px;
   max-width: 72px;
+  margin-top: 8px;
 }
 .portfolio-item > .content {
   display: flex;

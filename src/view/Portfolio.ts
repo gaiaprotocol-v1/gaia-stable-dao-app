@@ -2,6 +2,7 @@ import { utils } from "ethers";
 import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
 import CommonUtil from "../CommonUtil";
+import PortfolioItem from "../component/PortfolioItem";
 import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
 import Layout from "./Layout";
 
@@ -23,8 +24,7 @@ export default class Portfolio implements View {
                 this.interestKrwDisplay = el("p"),
             ),
             el("section",
-                el("h2", "아직 이자를 통한 투자가 이루어지지 않았습니다."),
-                //new PortfolioItem()
+                new PortfolioItem(1, "GMT", "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~")
             ),
         ));
         this.loadInterest();
