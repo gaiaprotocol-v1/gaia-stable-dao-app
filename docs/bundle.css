@@ -733,7 +733,7 @@ body {
   background-color: #101010;
   padding: 20px;
   border-radius: 4px;
-  align-items: flex-end;
+  align-items: center;
 }
 @media only screen and (max-width: 719px) {
   .portfolio-item {
@@ -766,7 +766,6 @@ body {
   text-align: left;
 }
 .portfolio-item > .content > p {
-  font-family: trajan-pro-3, serif;
   margin-top: 16px;
   font-size: 14px;
 }
