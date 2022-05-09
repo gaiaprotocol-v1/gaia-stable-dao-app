@@ -24,7 +24,7 @@ export default class Portfolio implements View {
                 this.interestKrwDisplay = el("p"),
             ),
             el("section",
-                new PortfolioItem(1, "stepn", "gmt", "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~")
+                new PortfolioItem(1, "stepn", "gmt", "₩6,593,031.06 (1938.279905549 GMT)", "2022.05.08 ~ ")
             ),
         ));
         this.loadInterest();

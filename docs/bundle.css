@@ -755,8 +755,8 @@ body {
   font-size: 21px;
 }
 .portfolio-item > .title > img {
+  margin-top: 16px;
   max-width: 72px;
-  margin-top: 8px;
 }
 .portfolio-item > .content {
   display: flex;
@@ -767,7 +767,7 @@ body {
 }
 .portfolio-item > .content > p {
   margin-top: 16px;
-  font-size: 14px;
+  font-weight: 300;
 }
 .portfolio-item > button {
   height: 42px;
@@ -1525,7 +1525,7 @@ body {
   margin-left: 4px;
 }
 .portfolio-view > .interest-container > p {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 .portfolio-view > section {
   width: 100%;
