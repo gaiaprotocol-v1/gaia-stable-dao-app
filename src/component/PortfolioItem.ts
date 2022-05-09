@@ -21,6 +21,7 @@ export default class PortfolioItem extends DomNode {
         symbol: string,
         name: string,
         startPrice: number,
+        startPriceUSD: number,
         desc2: string,
         desc3: string,
         desc4?: string,
@@ -35,9 +36,10 @@ export default class PortfolioItem extends DomNode {
             el(".content",
                 this.desc1Display = el("p", `${msg("PORTFOLIO_ITEM_DESC1")} ${symbol.toUpperCase()} (${name.toUpperCase()})`),
                 this.desc2Display = el("p", `${msg("PORTFOLIO_ITEM_DESC2")} ${desc2}`),
-                el("p", `시작가: ₩${startPrice}`),
+                el("p", `시작가: ₩${CommonUtil.numberWithCommas(startPrice.toString())}`),
+                this.priceDisplay = el("p", "현재가: "),
                 el(".price-container",
-                    this.priceDisplay = el("p", "현재가: "),
+                    el("p", "수익률: "),
                     this.rateDisplay = el("p.rate", ""),
                 ),
                 this.desc3Display = el("p", `${msg("PORTFOLIO_ITEM_DESC3")} ${desc3}`),
@@ -47,16 +49,22 @@ export default class PortfolioItem extends DomNode {
             // this.claimButton = el("button", msg("PORTFOLIO_BUTTON")),
         );
 
-        this.getPrice(symbol, startPrice);
+        this.getPrice(symbol, startPrice, startPriceUSD);
     }
 
-    async getPrice(symbol: string, price: number) {
-        const result = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=krw&ids=${symbol}`);
-        const data = await result.json();
-        const rate = (data[0].current_price / price) * 100 - 100;
+    async getPrice(symbol: string, price: number, priceUSD: number) {
+        const krw = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=krw&ids=${symbol}`);
+        const usd = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${symbol}`);
+        const dataKRW = await krw.json();
+        const dataUSD = await usd.json();
+        const rate = (dataKRW[0].current_price / price) * 100 - 100;
         this.priceDisplay.empty();
-        this.priceDisplay.appendText(`현재가: ₩${CommonUtil.numberWithCommas(data[0].current_price)}`);
-        this.rateDisplay.appendText(`(${rate.toFixed(2)}%)`);
+        this.priceDisplay.appendText(`현재가: ₩${CommonUtil.numberWithCommas(dataKRW[0].current_price)}`);
+
+        const rateKRW = (dataKRW[0].current_price - price) * 1938.279905549;
+        const rateUSD = (dataUSD[0].current_price - priceUSD) * 1938.279905549;
+        this.rateDisplay.appendText(`${rate.toFixed(2)}% (₩ ${CommonUtil.numberWithCommas(rateKRW.toFixed(2))} / $ ${CommonUtil.numberWithCommas(rateUSD.toFixed(2))})`);
+
         if (rate > 0) {
             this.rateDisplay.style({
                 color: "#D9000F"
