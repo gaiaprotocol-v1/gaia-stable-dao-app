@@ -1490,6 +1490,16 @@ body {
 .buy-view > .input-container > .usdt:active {
   background-color: rgba(0, 68, 90, 0.5);
 }
+.buy-view > .warning-container {
+  background-color: rgba(0, 68, 90, 0.7);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-top: 32px;
+}
+.buy-view > .warning-container > p {
+  font-weight: 300;
+  margin: 20px 0px;
+}
 .buy-view > .nft-container {
   display: flex;
   flex-direction: column;
