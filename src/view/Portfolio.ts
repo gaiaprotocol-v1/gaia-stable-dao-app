@@ -35,13 +35,13 @@ export default class Portfolio implements View {
         const balance = await MeshswapUSDCPairLPContract.balanceOf("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
         const miningIndex = await MeshswapUSDCPairLPContract.miningIndex();
         const userLastIndex = await MeshswapUSDCPairLPContract.userLastIndex("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
-        const mesh = balance.mul(miningIndex.sub(userLastIndex)).div(utils.parseEther("1");
+        const mesh = balance.mul(miningIndex.sub(userLastIndex)).div(utils.parseEther("1"));
         const totalMatic = await MaticContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
         const totalMesh = await MeshContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
         const result = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=matic-network");
         const data = await result.json();
         const price = data[0].current_price * parseFloat(utils.formatEther(totalMatic.mul(utils.parseEther("1")).div(totalMesh)));
-        const interest = price * parseFloat(utils.formatEther(mesh)));
+        const interest = price * parseFloat(utils.formatEther(mesh));
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
         const krw = interest * data2[0].basePrice;
