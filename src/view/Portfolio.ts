@@ -4,13 +4,15 @@ import { View, ViewParams } from "skydapp-common";
 import CommonUtil from "../CommonUtil";
 import PortfolioItem from "../component/PortfolioItem";
 import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
+import MaticContract from "../contracts/MaticContract";
+import MeshContract from "../contracts/MeshContract";
+import MeshswapUSDCPairLPContract from "../contracts/MeshswapUSDCPairLPContract";
 import Layout from "./Layout";
 
 
 export default class Portfolio implements View {
 
     private container: DomNode;
-    private interestKspDisplay: DomNode;
     private interestKusdtDisplay: DomNode;
     private interestKrwDisplay: DomNode;
 
@@ -20,7 +22,6 @@ export default class Portfolio implements View {
             el("h1", "Portfolio"),
             el("section.interest-container",
                 this.interestKusdtDisplay = el("span", "..."),
-                this.interestKspDisplay = el("span.ksp"),
                 this.interestKrwDisplay = el("p"),
             ),
             el("section",
@@ -31,17 +32,21 @@ export default class Portfolio implements View {
     }
 
     private async loadInterest() {
-        const kusdtInterest = await GaiaStableDAOOperatorContract.claimableInterest();
-        const kspInterest = await GaiaStableDAOOperatorContract.claimableKSPReward();
-        const result = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=klayswap-protocol");
+        const balance = await MeshswapUSDCPairLPContract.balanceOf("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
+        const miningIndex = await MeshswapUSDCPairLPContract.miningIndex();
+        const userLastIndex = await MeshswapUSDCPairLPContract.userLastIndex("0x8033cEB86c71EbBF575fF7015FcB8F1689d90aC1");
+        const mesh = balance.mul(miningIndex.sub(userLastIndex)).div(utils.parseEther("1");
+        const totalMatic = await MaticContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
+        const totalMesh = await MeshContract.balanceOf("0x07a7ab21b582058b71d2aee1b1719926e3451adf");
+        const result = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=matic-network");
         const data = await result.json();
-        const dollar = parseInt(utils.formatUnits(kusdtInterest, 6), 10) + data[0].current_price * parseInt(utils.formatEther(kspInterest), 10);
+        const price = data[0].current_price * parseFloat(utils.formatEther(totalMatic.mul(utils.parseEther("1")).div(totalMesh)));
+        const interest = price * parseFloat(utils.formatEther(mesh)));
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
-        const krw = dollar * data2[0].basePrice;
-        this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatUnits(kusdtInterest, 6))} oUSDT`);
+        const krw = interest * data2[0].basePrice;
+        this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatEther(mesh))} MESH`);
         this.interestKrwDisplay.empty().appendText(`총 한화: ${CommonUtil.numberWithCommas(String(krw))} 원`);
-        this.interestKspDisplay.empty().appendText(`+ ${CommonUtil.numberWithCommas(utils.formatEther(kspInterest))} KSP`);
     }
 
     public changeParams(params: ViewParams, uri: string): void { }

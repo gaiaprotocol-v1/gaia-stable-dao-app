@@ -9,12 +9,12 @@ export default class PortfolioItem extends DomNode {
     private desc1Display: DomNode;
     private desc2Display: DomNode;
     private desc3Display: DomNode;
-    private desc4Display: DomNode;
-    private desc5Display: DomNode;
+    //private desc4Display: DomNode;
+    //private desc5Display: DomNode;
     private priceDisplay: DomNode;
     private rateDisplay: DomNode;
 
-    private claimButton: DomNode;
+    //private claimButton: DomNode;
 
     constructor(
         id: number,
