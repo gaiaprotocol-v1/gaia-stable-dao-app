@@ -885,11 +885,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/pdfobject@^2.2.3":
-  version "2.2.3"
-  resolved "https://registry.npmjs.org/@types/pdfobject/-/pdfobject-2.2.3.tgz"
-  integrity sha512-MD9wkJikZX9GwEbYwMsJWDChNpATrf2ULVQ5oEfZue/SwA5l77Sm8KWWoM4NYS/RFy+/r0oDm4Z3EBbr7In08g==
-
 "@types/qrcode@^1.4.1":
   version "1.4.2"
   resolved "https://registry.npmjs.org/@types/qrcode/-/qrcode-1.4.2.tgz"

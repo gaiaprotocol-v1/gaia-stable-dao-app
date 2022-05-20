@@ -1,7 +1,8 @@
 import { View, ViewParams } from "skydapp-common";
 export default class Portfolio implements View {
     private container;
-    private interestDisplay;
+    private interestKusdtDisplay;
+    private interestKrwDisplay;
     constructor();
     private loadInterest;
     changeParams(params: ViewParams, uri: string): void;
