@@ -55,7 +55,7 @@ export default class Buy implements View {
                 this.priceDisplay = el("p", "PRICE: ... oUSDT"),
                 this.totalDisplay = el("p", "TOTAL: ... oUSDT"),
                 el(".select",
-                    this.kronosTab = el("a.disable", "Kronos", { click: () => this.loadTab("kronos") }),
+                    this.kronosTab = el("a.disable", "Genesis", { click: () => this.loadTab("kronos") }),
                     el("hr"),
                     this.supernovaTab = el("a.disable", "Supernova", { click: () => this.loadTab("supernova") }),
                     el("hr"),
