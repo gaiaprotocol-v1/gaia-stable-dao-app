@@ -7,7 +7,6 @@ export interface IGaiaStableDAOInterface extends utils.Interface {
     functions: {
         "approve(address,uint256)": FunctionFragment;
         "balanceOf(address)": FunctionFragment;
-        "burn(uint256)": FunctionFragment;
         "getApproved(uint256)": FunctionFragment;
         "isApprovedForAll(address,address)": FunctionFragment;
         "mint(address,uint256)": FunctionFragment;
@@ -22,7 +21,6 @@ export interface IGaiaStableDAOInterface extends utils.Interface {
     };
     encodeFunctionData(functionFragment: "approve", values: [string, BigNumberish]): string;
     encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-    encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "getApproved", values: [BigNumberish]): string;
     encodeFunctionData(functionFragment: "isApprovedForAll", values: [string, string]): string;
     encodeFunctionData(functionFragment: "mint", values: [string, BigNumberish]): string;
@@ -36,7 +34,6 @@ export interface IGaiaStableDAOInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "transferFrom", values: [string, string, BigNumberish]): string;
     decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-    decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "getApproved", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "isApprovedForAll", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
@@ -109,9 +106,6 @@ export interface IGaiaStableDAO extends BaseContract {
         balanceOf(owner: string, overrides?: CallOverrides): Promise<[BigNumber] & {
             balance: BigNumber;
         }>;
-        burn(tokenId: BigNumberish, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<ContractTransaction>;
         getApproved(tokenId: BigNumberish, overrides?: CallOverrides): Promise<[string] & {
             operator: string;
         }>;
@@ -143,9 +137,6 @@ export interface IGaiaStableDAO extends BaseContract {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
     balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
-    burn(tokenId: BigNumberish, overrides?: Overrides & {
-        from?: string | Promise<string>;
-    }): Promise<ContractTransaction>;
     getApproved(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
     isApprovedForAll(owner: string, operator: string, overrides?: CallOverrides): Promise<boolean>;
     mint(to: string, tokenId: BigNumberish, overrides?: Overrides & {
@@ -171,7 +162,6 @@ export interface IGaiaStableDAO extends BaseContract {
     callStatic: {
         approve(to: string, tokenId: BigNumberish, overrides?: CallOverrides): Promise<void>;
         balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
-        burn(tokenId: BigNumberish, overrides?: CallOverrides): Promise<void>;
         getApproved(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
         isApprovedForAll(owner: string, operator: string, overrides?: CallOverrides): Promise<boolean>;
         mint(to: string, tokenId: BigNumberish, overrides?: CallOverrides): Promise<boolean>;
@@ -198,9 +188,6 @@ export interface IGaiaStableDAO extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
         balanceOf(owner: string, overrides?: CallOverrides): Promise<BigNumber>;
-        burn(tokenId: BigNumberish, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<BigNumber>;
         getApproved(tokenId: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
         isApprovedForAll(owner: string, operator: string, overrides?: CallOverrides): Promise<BigNumber>;
         mint(to: string, tokenId: BigNumberish, overrides?: Overrides & {
@@ -229,9 +216,6 @@ export interface IGaiaStableDAO extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
         balanceOf(owner: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
-        burn(tokenId: BigNumberish, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<PopulatedTransaction>;
         getApproved(tokenId: BigNumberish, overrides?: CallOverrides): Promise<PopulatedTransaction>;
         isApprovedForAll(owner: string, operator: string, overrides?: CallOverrides): Promise<PopulatedTransaction>;
         mint(to: string, tokenId: BigNumberish, overrides?: Overrides & {

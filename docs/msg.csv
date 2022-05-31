@@ -23,12 +23,12 @@ SEND_PROMPT_INPUT,지갑주소를 입력해주세요.,Wallet Address
 BUY_TITLE,BUY & BUYBACK,BUY & BUYBACK
 BUYBACK_BUTTON,바이백,BUYBACK
 BUYBACK_CONFIRM_TITLE,바이백,BUYBACK
-BUYBACK_CONFIRM_DESC,"1,200 USDT를 바이백합니다. 바이백한 NFT는 다시 판매 리스트에 올라갑니다. 최초 바이백에는 2번의 트랜잭션이 필요합니다.",
+BUYBACK_CONFIRM_DESC,"1,200 USDC를 바이백합니다. 바이백한 NFT는 다시 판매 리스트에 올라갑니다. 최초 바이백에는 2번의 트랜잭션이 필요합니다.",
 BUYBACK_CONFIRM_BUTTON,확인,
 BUY_INPUT,NFT 구매 수량 입력,
-BUY_APPROVE_BUTTON,oUSDT 사용 승인,
+BUY_APPROVE_BUTTON,oUSDC 사용 승인,
 BUY_NFT_BUTTON,NFT 구입,
-BUY_USDT_BUTTON,oUSDT 구매하기,
+BUY_USDC_BUTTON,oUSDC 구매하기,
 MY_NFT_TITLE,내 NFT 목록,
 CONFIRM_BUTTON,확인,Confirm
 CANCEL_BUTTON,취소,Cancel
@@ -47,7 +47,7 @@ SNEAKPEEK_MENU,SNEAK PEEK,SNEAK PEEK
 TEAM_MENU,TEAM,TEAM
 FAQ_MENU,FAQ,FAQ
 PARTNERSHIP_MENU,PARTNERSHIP,PARTNERSHIP
-INIT_DESC,Gaia Protocol의 3rd NFT 프로젝트\n1. 세계 최초 NFT 기반 투자 그룹 형성 \n2. 국내 최초 스테이블(oUSDT)를 통한 NFT 발행 \n 3. 발행 금액의 90% 이상을 Stable Pool 에 예치 \n4. Pool에서 발생한 이자만으로 공격적인 투자 진행 \n 5. Stable DAO NFT 홀더들의 거버넌스(투표)를 통하여 투자처 및 투자 기간 선정 \n 6. 투자를 통해 발생한 이윤 90%를 각 NFT에 균등 분배 \n7. 투자처와 방식에 있어 NFT 홀더들의 DAO를 통해 홀더들의 적극적인 안건 제안과 투표 진행 \n8.예치금의 손실 없이 이자만을 사용한 공격적인 투자 진행으로 위험 부담 감소,
+INIT_DESC,Gaia Protocol의 3rd NFT 프로젝트\n1. 세계 최초 NFT 기반 투자 그룹 형성 \n2. 국내 최초 스테이블(oUSDC)를 통한 NFT 발행 \n 3. 발행 금액의 90% 이상을 Stable Pool 에 예치 \n4. Pool에서 발생한 이자만으로 공격적인 투자 진행 \n 5. Stable DAO NFT 홀더들의 거버넌스(투표)를 통하여 투자처 및 투자 기간 선정 \n 6. 투자를 통해 발생한 이윤 90%를 각 NFT에 균등 분배 \n7. 투자처와 방식에 있어 NFT 홀더들의 DAO를 통해 홀더들의 적극적인 안건 제안과 투표 진행 \n8.예치금의 손실 없이 이자만을 사용한 공격적인 투자 진행으로 위험 부담 감소,
 PROJECT_TITLE,Project Detail,Project Detail,
 PROJECT_DOC_LINK,문서 확인
 PROJECT_TITLE1,1. 프로젝트 런칭,
@@ -63,10 +63,10 @@ MINT_BUY_TITLE1,Buy,Buy
 MINT_BUY_TITLE,Buy & Buyback ,Buy & Buyback
 MINT_BUY_BUTTON,Buy
 MINT_BUY_DESC1,4월 8일 오후 9시 00분 ~ 6월 30일 오후 9시 00분,
-MINT_BUY_DESC2,"Gaia Kronos: 1,200oUSDT \n Gaia Supernova: 1,250oUSDT \n Public Sale: 1,300 oUSDT","Gaia Kronos: 1,200oUSDT \n Gaia Supernova: 1,250oUSDT \n Public Sale: 1,300 oUSDT"
+MINT_BUY_DESC2,"Gaia Kronos: 1,200oUSDC \n Gaia Supernova: 1,250oUSDC \n Public Sale: 1,300 oUSDC","Gaia Kronos: 1,200oUSDC \n Gaia Supernova: 1,250oUSDC \n Public Sale: 1,300 oUSDC"
 MINT_BUYBACK_TITLE,Buyback,Buyback
 MINT_BUYBACK_DESC1,4월 8일 오후 9시 00분 ~ 6월 30일 오후 9시 00분,
-MINT_BUYBACK_DESC2,"1,200 oUSDT (판매 기간동안만 바이백 가능)",
+MINT_BUYBACK_DESC2,"1,200 oUSDC (판매 기간동안만 바이백 가능)",
 TEAM_TITLE,TEAM,TEAM
 TEAM_TITLE1,심영재,"Sim, Young Jae"
 TEAM_DESC1,Director,Director

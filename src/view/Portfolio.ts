@@ -3,7 +3,6 @@ import { DomNode, el, msg } from "skydapp-browser";
 import { View, ViewParams } from "skydapp-common";
 import CommonUtil from "../CommonUtil";
 import PortfolioItem from "../component/PortfolioItem";
-import GaiaStableDAOOperatorContract from "../contracts/GaiaStableDAOOperatorContract";
 import MaticContract from "../contracts/MaticContract";
 import MeshContract from "../contracts/MeshContract";
 import MeshswapUSDCPairLPContract from "../contracts/MeshswapUSDCPairLPContract";
@@ -13,7 +12,7 @@ import Layout from "./Layout";
 export default class Portfolio implements View {
 
     private container: DomNode;
-    private interestKusdtDisplay: DomNode;
+    private interestMeshDisplay: DomNode;
     private interestKrwDisplay: DomNode;
 
     constructor() {
@@ -21,7 +20,7 @@ export default class Portfolio implements View {
         Layout.current.content.append(this.container = el(".portfolio-view",
             el("h1", "Portfolio"),
             el("section.interest-container",
-                this.interestKusdtDisplay = el("span", "..."),
+                this.interestMeshDisplay = el("span", "..."),
                 this.interestKrwDisplay = el("p"),
             ),
             el("section",
@@ -45,7 +44,7 @@ export default class Portfolio implements View {
         const result2 = await fetch("https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD");
         const data2 = await result2.json();
         const krw = interest * data2[0].basePrice;
-        this.interestKusdtDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatEther(mesh))} MESH`);
+        this.interestMeshDisplay.empty().appendText(`쌓여진 이자: ${CommonUtil.numberWithCommas(utils.formatEther(mesh))} MESH`);
         this.interestKrwDisplay.empty().appendText(`총 한화: ${CommonUtil.numberWithCommas(String(krw))} 원`);
     }
 

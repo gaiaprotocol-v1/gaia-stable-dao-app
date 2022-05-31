@@ -3,7 +3,6 @@ import { SkyRouter } from "skydapp-common";
 import superagent from "superagent";
 import Wallet from "./klaytn/Wallet";
 import Buy from "./view/Buy";
-import BuyMetaverseForum from "./view/BuyMetaverseForum";
 import Landing from "./view/Landing";
 import Layout from "./view/Layout";
 import Portfolio from "./view/Portfolio";
@@ -16,7 +15,6 @@ import Portfolio from "./view/Portfolio";
     SkyRouter.route("**", Layout, ["Landing"]);
     SkyRouter.route("", Landing);
     SkyRouter.route("buy", Buy);
-    SkyRouter.route("buy-metaverse-forum", BuyMetaverseForum);
     SkyRouter.route("portfolio", Portfolio);
 
     if (sessionStorage.__spa_path) {

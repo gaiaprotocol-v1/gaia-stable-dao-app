@@ -2,7 +2,7 @@ declare const _default: {
     chainId: number;
     contracts: {
         GaiaStableDAO: string;
-        GaiaStableDAOOperator: string;
+        GaiaStableDAOOperatorV2: string;
     };
 };
 export default _default;
